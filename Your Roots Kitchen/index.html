@@ -1,0 +1,2058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Your Roots Kitchen — Cook from your roots</title>
+<meta name="description" content="Turn your family heritage, food memories, and ancestry clues into historically inspired recipes you can make tonight." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --cream:#f7f1e3;
+  --cream-deep:#f1e8d4;
+  --paper:#fbf6ea;
+  --brown:#5a4632;
+  --brown-soft:#7a6347;
+  --ink:#3d3226;
+  --green:#2e5339;
+  --green-dark:#24422d;
+  --terracotta:#c4602f;
+  --terracotta-soft:#d9854f;
+  --gold:#c2a14d;
+  --gold-soft:#d9c48a;
+  --shadow:0 10px 30px rgba(90,70,50,.12), 0 2px 8px rgba(90,70,50,.08);
+  --radius:14px;
+  --serif:'Playfair Display', Georgia, 'Times New Roman', serif;
+  --body:'Lora', Georgia, serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--body);
+  color:var(--ink);
+  background-color:var(--cream);
+  background-image:
+    radial-gradient(rgba(122,99,71,.045) 1px, transparent 1px),
+    radial-gradient(rgba(194,161,77,.05) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(241,232,212,.7), rgba(247,241,227,1) 320px);
+  background-size:22px 22px, 34px 34px, 100% 100%;
+  background-position:0 0, 11px 11px, 0 0;
+  line-height:1.7;
+  font-size:1rem;
+  min-height:100vh;
+}
+img,svg{max-width:100%;display:block}
+h1,h2,h3,h4{font-family:var(--serif);color:var(--brown);line-height:1.2;font-weight:600}
+a{color:var(--green)}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px}
+.hidden{display:none !important}
+
+/* ---------- header ---------- */
+header.site{
+  padding:26px 0 8px;
+  text-align:center;
+}
+.brand{
+  font-family:var(--serif);
+  font-size:1.35rem;
+  color:var(--brown);
+  letter-spacing:.04em;
+  display:inline-flex;align-items:center;gap:10px;
+  cursor:pointer;border:none;background:none;
+}
+.brand .pot{width:30px;height:30px}
+.brand-sub{
+  font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--gold);margin-top:2px;
+}
+
+/* ---------- ornaments ---------- */
+.divider{
+  display:flex;align-items:center;gap:14px;justify-content:center;
+  margin:34px auto;max-width:420px;
+}
+.divider::before,.divider::after{
+  content:"";flex:1;height:1px;
+  background:linear-gradient(90deg, transparent, var(--gold-soft));
+}
+.divider::after{background:linear-gradient(90deg, var(--gold-soft), transparent)}
+.divider .leaf{color:var(--gold);font-size:1rem}
+.kicker{
+  font-family:var(--body);
+  font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--terracotta);font-weight:600;
+  margin-bottom:14px;
+}
+
+/* ---------- hero ---------- */
+.hero{padding:54px 0 30px;text-align:center}
+.hero h1{
+  font-size:clamp(2.5rem, 6vw, 4.2rem);
+  font-weight:700;color:var(--brown);
+  margin:0 auto 18px;max-width:14ch;
+}
+.hero h1 em{font-style:italic;color:var(--green)}
+.hero p.sub{
+  max-width:560px;margin:0 auto 30px;color:var(--brown-soft);
+  font-size:1.08rem;
+}
+.cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:18px}
+.support-line{font-style:italic;color:var(--brown-soft);font-size:.92rem;max-width:520px;margin:0 auto}
+
+/* ---------- buttons ---------- */
+.btn{
+  font-family:var(--body);
+  font-size:1rem;font-weight:600;
+  border-radius:999px;
+  padding:14px 30px;
+  cursor:pointer;
+  border:1.5px solid transparent;
+  transition:all .22s cubic-bezier(.4,0,.2,1);
+  display:inline-flex;align-items:center;gap:9px;
+  text-decoration:none;
+}
+.btn:active{transform:scale(.97)}
+.btn-primary{
+  background:var(--green);color:var(--cream);
+  box-shadow:0 6px 18px rgba(46,83,57,.3);
+}
+.btn-primary:hover{background:var(--green-dark);transform:translateY(-2px);box-shadow:0 10px 24px rgba(46,83,57,.35)}
+.btn-secondary{
+  background:transparent;color:var(--green);
+  border-color:var(--green);
+}
+.btn-secondary:hover{background:rgba(46,83,57,.08);transform:translateY(-2px)}
+.btn-terra{
+  background:var(--terracotta);color:var(--cream);
+  box-shadow:0 6px 18px rgba(196,96,47,.28);
+}
+.btn-terra:hover{background:#ad5226;transform:translateY(-2px)}
+.btn-ghost{
+  background:transparent;color:var(--brown-soft);
+  border-color:var(--gold-soft);font-size:.92rem;padding:11px 22px;
+}
+.btn-ghost:hover{border-color:var(--gold);color:var(--brown);background:rgba(194,161,77,.08)}
+.btn:disabled{opacity:.55;cursor:wait;transform:none}
+
+/* ---------- cards / panels ---------- */
+.card{
+  background:var(--paper);
+  background-image:radial-gradient(rgba(122,99,71,.03) 1px, transparent 1px);
+  background-size:18px 18px;
+  border:1px solid rgba(194,161,77,.35);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:34px 30px;
+  margin:0 0 28px;
+  position:relative;
+}
+.card::before{
+  content:"";position:absolute;inset:7px;
+  border:1px solid rgba(194,161,77,.28);
+  border-radius:9px;pointer-events:none;
+}
+.section-label{
+  font-family:var(--body);
+  font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--terracotta);font-weight:600;
+  display:flex;align-items:center;gap:12px;margin-bottom:8px;
+}
+.section-label::after{content:"";flex:1;height:1px;background:var(--gold-soft)}
+.card h2{font-size:clamp(1.5rem,3vw,1.9rem);margin-bottom:6px}
+.card .hint{color:var(--brown-soft);font-size:.93rem;margin-bottom:22px}
+
+/* ---------- forms ---------- */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px}
+@media(max-width:640px){.grid2{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:5px;margin-bottom:14px}
+.field label{
+  font-size:.85rem;font-weight:600;color:var(--brown);
+  letter-spacing:.02em;
+}
+.field .micro{font-size:.76rem;color:var(--brown-soft);font-weight:400;font-style:italic}
+.field input[type=text],.field input[type=email],.field textarea,.field select{
+  font-family:var(--body);font-size:.97rem;color:var(--ink);
+  background:#fffdf7;
+  border:1px solid rgba(122,99,71,.3);
+  border-radius:9px;
+  padding:11px 13px;
+  transition:border-color .2s, box-shadow .2s;
+  width:100%;
+}
+.field textarea{min-height:74px;resize:vertical}
+.field input:focus,.field textarea:focus,.field select:focus{
+  outline:none;border-color:var(--green);
+  box-shadow:0 0 0 3px rgba(46,83,57,.13);
+}
+.checks{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:9px;margin:8px 0 4px}
+.check{
+  display:flex;align-items:center;gap:9px;
+  background:#fffdf7;border:1px solid rgba(122,99,71,.25);
+  border-radius:9px;padding:9px 12px;cursor:pointer;
+  font-size:.92rem;transition:all .18s;
+}
+.check:hover{border-color:var(--gold)}
+.check input{accent-color:var(--green);width:16px;height:16px;cursor:pointer}
+.check:has(input:checked){border-color:var(--green);background:rgba(46,83,57,.07)}
+.privacy-note{
+  font-size:.8rem;color:var(--brown-soft);font-style:italic;
+  border-left:2px solid var(--gold-soft);padding-left:12px;margin:18px 0;
+}
+
+/* (AI runs through the owner's backend — no in-app key UI) */
+
+/* ---------- upload ---------- */
+.dropzone{
+  border:2px dashed rgba(122,99,71,.4);
+  border-radius:var(--radius);
+  background:rgba(255,253,247,.6);
+  padding:34px 20px;text-align:center;cursor:pointer;
+  transition:all .2s;
+}
+.dropzone:hover,.dropzone.drag{border-color:var(--terracotta);background:rgba(217,133,79,.07)}
+.dropzone .dz-icon{font-size:1.9rem;margin-bottom:6px}
+.dropzone p{color:var(--brown-soft);font-size:.93rem}
+.dropzone strong{color:var(--green)}
+.filelist{list-style:none;margin-top:14px}
+.filelist li{
+  display:flex;align-items:center;gap:10px;
+  background:#fffdf7;border:1px solid rgba(194,161,77,.4);
+  border-radius:9px;padding:8px 14px;margin-bottom:8px;font-size:.9rem;
+}
+.filelist .tag{
+  margin-left:auto;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;
+  padding:3px 10px;border-radius:99px;white-space:nowrap;
+}
+.tag-ok{background:rgba(46,83,57,.12);color:var(--green)}
+.tag-unsure{background:rgba(196,96,47,.13);color:var(--terracotta)}
+
+/* ---------- chips / labels ---------- */
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+.chip{
+  font-size:.74rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  padding:6px 14px;border-radius:999px;display:inline-flex;align-items:center;gap:6px;
+}
+.chip-type{background:rgba(46,83,57,.12);color:var(--green);border:1px solid rgba(46,83,57,.25)}
+.chip-conf{background:rgba(196,96,47,.12);color:var(--terracotta);border:1px solid rgba(196,96,47,.3)}
+.chip-branch{background:rgba(194,161,77,.16);color:var(--brown);border:1px solid rgba(194,161,77,.4)}
+
+/* ---------- result ---------- */
+.recipe-illo{
+  border:1px solid rgba(194,161,77,.5);
+  border-radius:var(--radius);
+  overflow:hidden;box-shadow:var(--shadow);
+  margin-bottom:24px;background:var(--paper);
+}
+.dish-name{font-size:clamp(1.9rem,4.5vw,2.7rem);margin:6px 0 4px}
+.result-block{margin:22px 0}
+.result-block h3{
+  font-size:.78rem;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--terracotta);font-family:var(--body);font-weight:600;
+  display:flex;align-items:center;gap:12px;margin-bottom:10px;
+}
+.result-block h3::after{content:"";flex:1;height:1px;background:var(--gold-soft)}
+.story{
+  font-style:italic;color:var(--brown);
+  background:rgba(194,161,77,.09);
+  border-left:3px solid var(--gold);
+  padding:18px 20px;border-radius:0 10px 10px 0;
+  font-size:1.02rem;
+}
+.ing-list{list-style:none}
+.ing-list li{
+  padding:7px 0 7px 26px;position:relative;
+  border-bottom:1px dotted rgba(194,161,77,.45);
+}
+.ing-list li::before{content:"◆";position:absolute;left:4px;color:var(--gold);font-size:.6rem;top:13px}
+.steps-list{list-style:none;counter-reset:step}
+.steps-list li{
+  counter-increment:step;position:relative;
+  padding:10px 0 10px 46px;margin-bottom:2px;
+}
+.steps-list li::before{
+  content:counter(step);
+  position:absolute;left:0;top:10px;
+  width:30px;height:30px;border-radius:50%;
+  background:var(--green);color:var(--cream);
+  font-family:var(--serif);font-size:.95rem;
+  display:flex;align-items:center;justify-content:center;
+}
+.subs-list{list-style:none}
+.subs-list li{padding:6px 0 6px 24px;position:relative}
+.subs-list li::before{content:"↪";position:absolute;left:0;color:var(--terracotta)}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin:30px 0 8px}
+.note-soft{font-size:.85rem;color:var(--brown-soft);font-style:italic}
+
+/* ---------- loading ---------- */
+.loading{
+  text-align:center;padding:70px 20px;
+}
+.loading .spin{
+  width:54px;height:54px;margin:0 auto 20px;
+  animation:turn 1.6s linear infinite;
+}
+@keyframes turn{to{transform:rotate(360deg)}}
+.loading p{font-style:italic;color:var(--brown-soft);font-size:1.05rem}
+
+/* ---------- email ---------- */
+.email-box{
+  background:linear-gradient(135deg, rgba(46,83,57,.07), rgba(194,161,77,.1));
+}
+.email-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.email-row input{flex:1;min-width:220px}
+.email-thanks{color:var(--green);font-weight:600;margin-top:12px}
+
+/* ---------- footer ---------- */
+footer.site{
+  margin-top:60px;padding:30px 20px 40px;
+  border-top:1px solid rgba(194,161,77,.4);
+  text-align:center;
+}
+footer .disclaimer{
+  font-size:.76rem;color:var(--brown-soft);max-width:560px;margin:0 auto;
+  font-style:italic;line-height:1.6;
+}
+footer .foot-brand{font-family:var(--serif);color:var(--gold);margin-bottom:8px;font-size:.95rem}
+
+/* ---------- view transitions ---------- */
+.view{animation:fadeUp .45s cubic-bezier(.4,0,.2,1)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* ---------- toast ---------- */
+#toast{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);
+  background:var(--brown);color:var(--cream);
+  padding:12px 26px;border-radius:999px;font-size:.92rem;
+  box-shadow:var(--shadow);opacity:0;transition:all .35s cubic-bezier(.4,0,.2,1);
+  z-index:50;pointer-events:none;
+}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ---------- paywall overlay ---------- */
+.overlay{
+  position:fixed;inset:0;background:rgba(61,50,38,.55);
+  display:flex;align-items:center;justify-content:center;
+  z-index:60;padding:20px;animation:fadeUp .3s;
+}
+.overlay .card{max-width:480px;margin:0;text-align:center}
+.overlay .card h2{margin-bottom:10px}
+.overlay .stack{display:flex;flex-direction:column;gap:10px;margin-top:22px}
+.overlay .stack .btn{justify-content:center}
+
+.error-box{
+  background:rgba(196,96,47,.1);border:1px solid rgba(196,96,47,.4);
+  border-radius:10px;padding:14px 18px;color:#8a4520;font-size:.92rem;margin:14px 0;
+}
+@media(max-width:640px){
+  .card{padding:26px 18px}
+  .actions .btn{flex:1;justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <button class="brand" onclick="App.go('home')" aria-label="Your Roots Kitchen home">
+    <svg class="pot" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+      <path d="M6 18h28v6c0 7-6 12-14 12S6 31 6 24v-6z" fill="#2e5339"/>
+      <rect x="3" y="16" width="34" height="4" rx="2" fill="#c4602f"/>
+      <path d="M14 12c0-2 2-2 2-4M20 12c0-2 2-2 2-4M26 12c0-2 2-2 2-4" stroke="#c2a14d" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    <span>Your Roots Kitchen<span class="brand-sub" style="display:block">Cook from your roots</span></span>
+  </button>
+</header>
+
+<main class="wrap" id="app">
+
+  <!-- ============ HOME VIEW ============ -->
+  <section id="view-home" class="view">
+    <div class="hero">
+      <div class="kicker">A Heritage Recipe Kitchen</div>
+      <h1>Cook from <em>your roots.</em></h1>
+      <p class="sub">Turn your family heritage, food memories, and ancestry clues into historically inspired recipes you can make tonight.</p>
+      <div class="cta-row">
+        <a href="#heritage-form" class="btn btn-primary">Generate a Dish
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#upload-section" class="btn btn-secondary">Upload Ancestry or Recipe Files</a>
+      </div>
+      <p class="support-line">Explore dishes your family may have encountered — and discover new recipes inspired by where you come from.</p>
+    </div>
+
+    <div class="divider"><span class="leaf">❧</span></div>
+
+    <!-- Manual input form -->
+    <form id="heritage-form" class="card" novalidate>
+      <div class="section-label">From the Family Record</div>
+      <h2>Tell us where your story begins</h2>
+      <p class="hint">Share whatever you know — a country, a surname, a grandmother's stew. Every detail is optional, and even one clue is enough to start.</p>
+
+      <div class="grid2">
+        <div class="field">
+          <label for="f-region">Country or region</label>
+          <input type="text" id="f-region" name="region" placeholder="e.g. Nigeria, Sicily, the American South" />
+        </div>
+        <div class="field">
+          <label for="f-ethnicity">Ethnicity or cultural background</label>
+          <input type="text" id="f-ethnicity" name="ethnicity" placeholder="e.g. African American, Irish, Lebanese" />
+        </div>
+        <div class="field">
+          <label for="f-surnames">Family surnames</label>
+          <input type="text" id="f-surnames" name="surnames" placeholder="e.g. Williams, Okafor, Rossi" />
+        </div>
+        <div class="field">
+          <label for="f-migration">Known migration history</label>
+          <input type="text" id="f-migration" name="migration" placeholder="e.g. Georgia to Detroit in the 1940s" />
+        </div>
+        <div class="field">
+          <label for="f-languages">Languages spoken in the family</label>
+          <input type="text" id="f-languages" name="languages" placeholder="e.g. English, Yoruba, Italian" />
+        </div>
+        <div class="field">
+          <label for="f-dna">DNA percentages <span class="micro">(if known)</span></label>
+          <input type="text" id="f-dna" name="dna" placeholder="e.g. 38% Nigeria, 22% Ireland" />
+        </div>
+        <div class="field">
+          <label for="f-cities">Cities or villages</label>
+          <input type="text" id="f-cities" name="cities" placeholder="e.g. Charleston, Palermo, Lagos" />
+        </div>
+        <div class="field">
+          <label for="f-focus">A branch you'd like to explore <span class="micro">(optional)</span></label>
+          <input type="text" id="f-focus" name="focus" placeholder="e.g. my grandmother's West African side" />
+        </div>
+      </div>
+      <div class="field">
+        <label for="f-stories">Family stories</label>
+        <textarea id="f-stories" name="stories" placeholder="Anything passed down — who came from where, who cooked, what the table was like."></textarea>
+      </div>
+
+      <div class="section-label" style="margin-top:26px">From the Kitchen Memory</div>
+      <div class="grid2">
+        <div class="field">
+          <label for="f-dishes">Known family dishes</label>
+          <input type="text" id="f-dishes" name="dishes" placeholder="e.g. red rice, cabbage rolls, Sunday gumbo" />
+        </div>
+        <div class="field">
+          <label for="f-ingredients">Ingredients remembered from childhood</label>
+          <input type="text" id="f-ingredients" name="ingredients" placeholder="e.g. okra, smoked turkey, semolina" />
+        </div>
+        <div class="field">
+          <label for="f-methods">Cooking methods used in the family</label>
+          <input type="text" id="f-methods" name="methods" placeholder="e.g. slow-simmered pots, cast iron, open fire" />
+        </div>
+        <div class="field">
+          <label for="f-foodstories">Family stories around food</label>
+          <input type="text" id="f-foodstories" name="foodstories" placeholder="e.g. Big Mama's biscuits every Sunday" />
+        </div>
+      </div>
+
+      <!-- Upload -->
+      <div class="section-label" style="margin-top:26px" id="upload-section">From the Recipe Box</div>
+      <p class="hint">Optionally add ancestry screenshots, documents, recipe cards, handwritten recipes, dish photos, or notes. <span class="micro">PNG, JPG, PDF, TXT, DOCX</span></p>
+      <div class="dropzone" id="dropzone" role="button" tabindex="0" aria-label="Upload ancestry or recipe files">
+        <div class="dz-icon" aria-hidden="true">🗃️</div>
+        <p><strong>Upload Ancestry or Recipe Files</strong><br/>drag &amp; drop, or click to browse</p>
+        <input type="file" id="file-input" class="hidden" multiple accept=".png,.jpg,.jpeg,.pdf,.txt,.docx,.md" />
+      </div>
+      <ul class="filelist" id="filelist"></ul>
+      <div id="upload-error"></div>
+
+      <!-- Dietary -->
+      <div class="section-label" style="margin-top:26px">From the Pantry Rules</div>
+      <p class="hint">Dietary preferences — we'll honor every box you check.</p>
+      <div class="checks" id="diet-checks">
+        <label class="check"><input type="checkbox" name="diet" value="vegetarian"/>Vegetarian</label>
+        <label class="check"><input type="checkbox" name="diet" value="vegan"/>Vegan</label>
+        <label class="check"><input type="checkbox" name="diet" value="halal"/>Halal</label>
+        <label class="check"><input type="checkbox" name="diet" value="kosher"/>Kosher</label>
+        <label class="check"><input type="checkbox" name="diet" value="glutenfree"/>Gluten-free</label>
+        <label class="check"><input type="checkbox" name="diet" value="dairyfree"/>Dairy-free</label>
+        <label class="check"><input type="checkbox" name="diet" value="nutallergy"/>Nut allergy</label>
+        <label class="check"><input type="checkbox" name="diet" value="lowsodium"/>Low sodium</label>
+        <label class="check"><input type="checkbox" name="diet" value="kidfriendly"/>Kid-friendly</label>
+      </div>
+
+      <div class="field" style="max-width:280px;margin-top:18px">
+        <label for="f-skill">Cooking skill level</label>
+        <select id="f-skill" name="skill">
+          <option value="Beginner">Beginner</option>
+          <option value="Intermediate" selected>Intermediate</option>
+          <option value="Advanced">Advanced</option>
+        </select>
+      </div>
+
+      <p class="privacy-note">Your heritage and food information is used to generate recipes during this session. The MVP does not require an account or permanent profile.</p>
+
+      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;font-size:1.08rem">Generate a Dish</button>
+    </form>
+
+    <!-- Email capture -->
+    <div class="card email-box">
+      <div class="section-label">For the Family Bookshelf</div>
+      <h2>Want to build your family cookbook later?</h2>
+      <p class="hint" style="margin-bottom:0">Join the list to be notified when saved recipes, printable cards, and family cookbook features launch.</p>
+      <form class="email-row" data-email-form>
+        <input type="email" placeholder="you@example.com" aria-label="Email address" required />
+        <button type="submit" class="btn btn-terra">Join the Cookbook List</button>
+      </form>
+      <p class="email-thanks hidden">You're on the list. We'll let you know when the family cookbook is ready.</p>
+    </div>
+  </section>
+
+  <!-- ============ PROFILE REVIEW VIEW ============ -->
+  <section id="view-profile" class="view hidden">
+    <div style="text-align:center;padding:30px 0 8px">
+      <div class="kicker">Step Two · The Family Record</div>
+      <h1 style="font-size:clamp(1.9rem,4.5vw,2.8rem)">Review Your Food Heritage Profile</h1>
+      <p class="support-line" style="margin-top:10px">We've gathered your details into one place. Edit anything before we head to the stove.</p>
+    </div>
+    <div class="divider"><span class="leaf">❧</span></div>
+    <form id="profile-form" class="card">
+      <div class="section-label">Heritage</div>
+      <div class="grid2" id="profile-heritage-fields"></div>
+      <div class="section-label" style="margin-top:24px">Kitchen Memory</div>
+      <div class="grid2" id="profile-food-fields"></div>
+      <div class="section-label" style="margin-top:24px">Preferences</div>
+      <div class="grid2" id="profile-pref-fields"></div>
+      <div class="actions">
+        <button type="button" class="btn btn-ghost" onclick="App.go('home')">← Back</button>
+        <button type="submit" class="btn btn-primary" style="flex:1;justify-content:center">Generate Dish</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- ============ LOADING VIEW ============ -->
+  <section id="view-loading" class="view hidden">
+    <div class="loading">
+      <svg class="spin" viewBox="0 0 54 54" fill="none" aria-hidden="true">
+        <circle cx="27" cy="27" r="22" stroke="#d9c48a" stroke-width="3"/>
+        <path d="M27 5a22 22 0 0 1 22 22" stroke="#2e5339" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="27" cy="27" r="6" fill="#c4602f"/>
+      </svg>
+      <p id="loading-msg">Looking through the recipe box…</p>
+    </div>
+  </section>
+
+  <!-- ============ RESULT VIEW ============ -->
+  <section id="view-result" class="view hidden">
+    <div style="text-align:center;padding:30px 0 8px">
+      <div class="kicker">From the Kitchen of Your People</div>
+      <h1 style="font-size:clamp(1.9rem,4.5vw,2.8rem)">A Dish From Your Roots</h1>
+    </div>
+    <div class="divider"><span class="leaf">❧</span></div>
+
+    <div class="card" id="result-card">
+      <div class="recipe-illo" id="recipe-illo" aria-label="Recipe card illustration"></div>
+      <p class="note-soft hidden" id="illo-status" style="text-align:center;margin:-14px 0 18px">✦ Painting your recipe card…</p>
+      <div class="chips" id="result-chips"></div>
+      <h2 class="dish-name" id="r-name"></h2>
+      <p class="note-soft" id="r-inspiration"></p>
+      <p class="note-soft" id="r-source" style="font-size:.78rem;opacity:.8"></p>
+
+      <div class="result-block">
+        <h3>Why this fits your family history</h3>
+        <p id="r-why"></p>
+      </div>
+
+      <div class="result-block">
+        <h3>A note from the table</h3>
+        <div class="story" id="r-story"></div>
+      </div>
+
+      <div class="result-block">
+        <h3>Ingredients</h3>
+        <ul class="ing-list" id="r-ingredients"></ul>
+      </div>
+
+      <div class="result-block">
+        <h3>Method</h3>
+        <ol class="steps-list" id="r-steps"></ol>
+        <p class="note-soft" id="r-skillnote" style="margin-top:8px"></p>
+      </div>
+
+      <div class="result-block">
+        <h3>Substitutions</h3>
+        <ul class="subs-list" id="r-subs"></ul>
+      </div>
+
+      <div class="result-block">
+        <h3>To serve</h3>
+        <p id="r-serving"></p>
+        <p class="note-soft" id="r-dietnote" style="margin-top:8px"></p>
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-primary" onclick="App.downloadCard()">Download Recipe Card</button>
+        <button class="btn btn-secondary" onclick="App.copyRecipe()">Copy Recipe</button>
+        <button class="btn btn-terra" onclick="App.regenerate()">Generate Another Dish</button>
+      </div>
+      <p class="note-soft" style="text-align:center">Or <a href="#" onclick="App.go('profile');return false;">edit your heritage profile</a> first.</p>
+    </div>
+
+    <div class="card email-box">
+      <div class="section-label">For the Family Bookshelf</div>
+      <h2>Want to build your family cookbook later?</h2>
+      <p class="hint" style="margin-bottom:0">Join the list to be notified when saved recipes, printable cards, and family cookbook features launch.</p>
+      <form class="email-row" data-email-form>
+        <input type="email" placeholder="you@example.com" aria-label="Email address" required />
+        <button type="submit" class="btn btn-terra">Join the Cookbook List</button>
+      </form>
+      <p class="email-thanks hidden">You're on the list. We'll let you know when the family cookbook is ready.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="foot-brand">❧ Your Roots Kitchen</div>
+  <p class="disclaimer">Recipes and food histories are culturally inspired suggestions, not proof of what your specific ancestors ate. This app does not provide medical, nutritional, or genealogical advice.</p>
+</footer>
+
+<!-- paywall overlay -->
+<div id="paywall" class="overlay hidden" role="dialog" aria-modal="true" aria-labelledby="paywall-title">
+  <div class="card">
+    <div class="section-label" style="justify-content:center">The Kitchen Is Still Open</div>
+    <h2 id="paywall-title">You've cooked your free dishes for today</h2>
+    <p class="hint" id="paywall-msg" style="margin-bottom:0">Unlock unlimited one-of-a-kind dishes and painted recipe cards — or keep cooking from the family recipe box, on the house.</p>
+    <div class="stack">
+      <a class="btn btn-terra" id="paywall-link" href="#" target="_blank" rel="noopener">Unlock Unlimited Dishes</a>
+      <button class="btn btn-secondary" onclick="App.paywallMock()">Serve From the Recipe Box Instead</button>
+      <button class="btn btn-ghost" onclick="App.closePaywall()">Maybe Tomorrow</button>
+    </div>
+    <p class="note-soft" style="margin-top:16px;font-size:.78rem">Free dishes reset daily. Purchases are handled securely by Stripe; after checkout you'll return here unlocked.</p>
+  </div>
+</div>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* =====================================================================
+   YOUR ROOTS KITCHEN — MVP
+   Architecture notes:
+   - AIService is the abstraction layer. Swap `AIService.generateDish`
+     and `AIService.parseFile` with real API calls later; the rest of
+     the app only talks to AIService.
+   - All state is session-only (in-memory + sessionStorage). No accounts.
+   ===================================================================== */
+
+/* ---------- prompts reserved for live AI integration ---------- */
+const PROMPTS = {
+  parseFile: `Extract ancestry, heritage, food, recipe, and family-memory information from the uploaded file. Do not make medical, genetic, or scientific claims. Only summarize visible information. Identify countries, regions, ethnicities, DNA percentages, surnames, migration clues, languages, cities, villages, family dishes, ingredients, cooking methods, handwritten recipe details, and family food stories if present. Return a clean editable summary. If something is unclear, mark it as uncertain rather than guessing.`,
+  generateDish: `You are generating one culturally respectful, historically inspired recipe for a heritage food app called Your Roots Kitchen. The user has provided heritage, ancestry, family history, and food-memory information. Create one dish inspired by that information. Do not claim this is a real family recipe or proof of what the user's exact ancestors ate. Frame the dish as something their family may have encountered or as a recipe inspired by connected foodways. Generate one dish only. The dish may be traditional, historically inspired, or multicultural fusion. Choose randomly but ground the choice in the user's heritage profile. Honor all dietary preferences and restrictions. Avoid stereotypes, offensive claims, sacred or ceremonial food claims unless explicitly provided by the user, and trauma-heavy historical framing. Focus on resilience, continuity, family memory, practical cooking, and pride. Return: dish name; dish type label; historical confidence label; heritage inspiration; why this fits; short immersive food story; ingredients with measurements; numbered steps; substitutions; serving suggestions; recipe card image prompt. Do not include nutrition estimates, shopping lists, medical advice, or genealogical certainty.`
+};
+
+/* =====================================================================
+   CULTURE KNOWLEDGE BASE
+   Each culture: label, keywords for matching, pantry (for fusion),
+   and the dish pool lives in DISHES below, keyed by culture id.
+   ===================================================================== */
+const CULTURES = {
+  westAfrican:   { label:"West African", kw:["nigeria","ghana","senegal","west africa","yoruba","igbo","hausa","mali","ivory coast","benin","togo","sierra leone","liberia","gambia","guinea","wolof","akan","mande","cameroon"], pantry:["long-grain rice","tomatoes","scotch bonnet or mild chili","smoked paprika","peanut or palm-style oil","okra","ginger and garlic"] },
+  africanAmerican:{ label:"African American & Southern", kw:["african american","african-american","black american","soul food","southern","gullah","geechee","creole","cajun","louisiana","mississippi","alabama","georgia","carolina","virginia","tennessee","memphis","harlem","detroit","chicago south side","great migration","freedmen","juneteenth","texas"], pantry:["collard or mustard greens","cornmeal","smoked turkey or smoked paprika","black-eyed peas","sweet potatoes","cast-iron seasoning blend"] },
+  caribbean:     { label:"Caribbean", kw:["jamaica","caribbean","haiti","trinidad","barbados","bahamas","puerto ric","cuba","cuban","dominican","antigua","grenada","st. lucia","west indies","west indian"], pantry:["allspice and thyme","rice and pigeon peas","coconut milk","plantains","lime","scallions"] },
+  italian:       { label:"Italian", kw:["italy","italian","sicil","calabri","naples","neapolitan","tuscan","tuscany","rome","roman","puglia","abruzzo","veneto","lombard","genoa","sardinia"], pantry:["olive oil","garlic","san marzano-style tomatoes","hard cheese (or nutritional yeast)","fresh basil and oregano","pasta or polenta"] },
+  irish:         { label:"Irish", kw:["ireland","irish","dublin","cork","galway","kerry","donegal","celtic","gaelic","ulster","belfast"], pantry:["potatoes","butter (or olive oil)","cabbage and leeks","oats","carrots","fresh parsley"] },
+  mexican:       { label:"Mexican", kw:["mexico","mexican","oaxaca","jalisco","puebla","yucat","sonora","michoac","chicano","tejano","aztec","maya"], pantry:["corn tortillas or masa","dried chiles","black or pinto beans","tomatoes and tomatillos","lime and cilantro","cumin and oregano"] },
+  german:        { label:"German & Central European", kw:["german","germany","bavaria","prussia","austria","austrian","swiss","switzerland","alsace","rhineland","pennsylvania dutch"], pantry:["potatoes","cabbage or sauerkraut","caraway and mustard seed","rye or wheat flour","onions","apples"] },
+  easternEuropean:{ label:"Eastern European", kw:["poland","polish","ukrain","russia","russian","czech","slovak","hungar","romania","bulgar","balkan","croat","serb","lithuan","latvia","estonia","belarus"], pantry:["beets and cabbage","potatoes","dill and paprika","sour cream (or plant yogurt)","mushrooms","barley or buckwheat"] },
+  jewish:        { label:"Jewish (Ashkenazi & Sephardi)", kw:["jewish","ashkenazi","sephardi","sephardic","yiddish","hebrew","israel","shtetl","mizrahi"], pantry:["onions and carrots","egg noodles or matzo meal","fresh dill and parsley","chickpeas","olive oil","warm spices like cinnamon and cumin"] },
+  chinese:       { label:"Chinese", kw:["china","chinese","canton","guangdong","sichuan","szechuan","hong kong","taiwan","taiwanese","hakka","fujian","toisan","shanghai","mandarin"], pantry:["soy sauce or tamari","ginger, garlic, scallion","rice","sesame oil","greens like bok choy","rice vinegar"] },
+  indian:        { label:"South Asian", kw:["india","indian","punjab","gujarat","bengal","tamil","kerala","goa","pakistan","bangladesh","sri lanka","south asian","desi","hindustani"], pantry:["basmati rice or flatbread flour","lentils","cumin, coriander, turmeric","ginger-garlic paste","onions and tomatoes","fresh cilantro"] },
+  filipino:      { label:"Filipino", kw:["philippin","filipino","filipina","tagalog","visay","cebu","luzon","ilocano","mindanao"], pantry:["rice","soy sauce and cane vinegar","garlic and bay leaf","coconut milk","ginger","calamansi or lime"] },
+  greek:         { label:"Greek", kw:["greece","greek","crete","cretan","aegean","macedonia","peloponnese","cyprus","cypriot"], pantry:["olive oil and lemon","oregano and mint","tomatoes and cucumbers","white beans or chickpeas","feta (or plant feta)","honey or fig"] },
+  levantine:     { label:"Levantine & Middle Eastern", kw:["lebanon","leban","syria","syrian","palestin","jordan","levant","middle east","turkish","turkey","armenian","armenia","persian","iran","iraqi","iraq","egypt","morocc","tunis","algeri","north africa"], pantry:["olive oil and lemon","chickpeas and bulgur","parsley and mint","tahini","warm spices: cumin, allspice, cinnamon","tomatoes and eggplant"] },
+  british:       { label:"British Isles", kw:["england","english","britain","british","scotland","scottish","wales","welsh","cornish","yorkshire","london","manx"], pantry:["root vegetables","oats and barley","butter (or oil)","mustard and herbs","peas","apples and dried fruit"] },
+  scandinavian:  { label:"Scandinavian & Nordic", kw:["sweden","swedish","norway","norwegian","denmark","danish","finland","finnish","iceland","scandinav","nordic"], pantry:["potatoes and root vegetables","dill","rye bread or crispbread","lingonberry or tart jam","oats","mustard"] },
+  french:        { label:"French", kw:["france","french","brittany","normandy","provence","paris","lyon","bordeaux","quebec","acadian","huguenot"], pantry:["butter or olive oil","shallots and leeks","fresh thyme and bay","dijon mustard","white beans","good bread"] }
+};
+
+/* Dish data is injected below */
+window.YRK_DISHES = [
+/* ---------------- WEST AFRICAN ---------------- */
+{ c:"westAfrican", name:"Jollof-Inspired Tomato Rice", type:"Traditional Dish", conf:"Strong Heritage Match",
+  insp:"Inspired by the celebrated one-pot rice dishes of West Africa, where jollof is the centerpiece of family gatherings.",
+  why:"One-pot tomato rice is one of the most beloved threads in West African cooking — a dish that travels with families and anchors celebrations.",
+  story:"Families with roots like yours may have encountered a pot like this at the center of every gathering worth remembering — rice stained deep red with tomatoes and peppers, the bottom layer crisping into the prized, smoky crust everyone quietly hopes to be served. It is a dish of generosity: made big, made proudly, and made to feed whoever shows up.",
+  ing:["2 cups long-grain rice, rinsed well","3 tablespoons neutral oil","1 large onion, half sliced and half blended","1 (14 oz) can crushed tomatoes","2 red bell peppers, roughly chopped","1 scotch bonnet or habanero, whole (optional, for gentle heat)","2 teaspoons smoked paprika","1 teaspoon curry powder","1 teaspoon dried thyme","2½ cups vegetable broth","1 bay leaf","Salt to taste"],
+  steps:["Blend the tomatoes, bell peppers, and half the onion into a smooth purée.","Heat the oil in a heavy pot over medium. Fry the sliced onion until golden, about 5 minutes.","Pour in the purée with the smoked paprika, curry powder, and thyme. Simmer 10–12 minutes, stirring, until thickened and brick-red.","Stir in the rice until every grain is coated. Add broth, bay leaf, and the whole pepper if using.","Cover tightly (a layer of foil under the lid helps) and cook on low 25–30 minutes without stirring.","Rest 10 minutes off the heat, remove the bay leaf and pepper, then fluff and serve."],
+  subs:["No scotch bonnet? A pinch of cayenne or none at all — the dish stands without heat.","Smoked paprika can stand in for the traditional firewood smokiness.","Any long-grain rice works; parboiled rice is most forgiving."],
+  serve:"Serve in a wide dish, family-style, with fried plantains or a simple cucumber salad alongside.",
+  tags:[], motifs:["tomato","grain","pepper","pot"] },
+
+{ c:"westAfrican", name:"Groundnut Sweet Potato Stew", type:"Traditional Dish", conf:"Strong Heritage Match",
+  insp:"Inspired by the groundnut (peanut) stews simmered across Senegal, Ghana, Nigeria, and Mali for generations.",
+  why:"Groundnut stew is a cornerstone of West African home cooking — thick, nourishing, and built to stretch with whatever the garden gave.",
+  story:"This recipe is inspired by foodways connected to the great groundnut stews of West Africa — pots that thickened slowly over the fire while stories went around. Families with roots like yours may have known a version with chicken, with fish, or with nothing but vegetables and the deep, toasty comfort of ground peanuts. Either way, the pot always seemed to know how many were coming to dinner.",
+  ing:["2 tablespoons neutral oil","1 onion, diced","3 cloves garlic, minced","1 tablespoon grated fresh ginger","2 tablespoons tomato paste","2 medium sweet potatoes, peeled and cubed","½ cup natural peanut butter","4 cups vegetable broth","1 (14 oz) can diced tomatoes","4 cups chopped greens (collards, spinach, or kale)","1 teaspoon ground coriander","Pinch of cayenne (optional)","Salt to taste"],
+  steps:["Heat oil in a large pot over medium. Soften the onion 4–5 minutes, then add garlic and ginger for 1 minute.","Stir in tomato paste and coriander; cook 2 minutes until darkened.","Add sweet potatoes, tomatoes, and broth. Bring to a simmer.","Whisk the peanut butter with a ladle of hot broth until smooth, then stir it back into the pot.","Simmer gently 20 minutes, until the sweet potatoes are tender and the stew has thickened.","Stir in the greens and cook 5 minutes more. Season and serve."],
+  subs:["Sunflower seed butter works for peanut-free kitchens (and changes the dish's character gently).","Butternut squash can replace sweet potato.","Add shredded rotisserie chicken in the last 10 minutes if your table eats meat."],
+  serve:"Ladle over rice or fonio, with extra greens on top and lime wedges at the table.",
+  tags:["peanut","nuts"], motifs:["potato","leafy","pot","herb"] },
+
+/* ---------------- AFRICAN AMERICAN & SOUTHERN ---------------- */
+{ c:"africanAmerican", name:"Slow Pot of Greens with Cornmeal Dumplings", type:"Historically Inspired Dish", conf:"Strong Heritage Match",
+  insp:"Inspired by the greens-and-cornmeal traditions of Black Southern kitchens, from Gullah country to the Great Migration cities.",
+  why:"A slow pot of greens is one of the deepest traditions in African American cooking — a dish of patience, skill, and Sunday tables, with cornmeal dumplings stretching it into a full meal.",
+  story:"Families with roots like yours may have known the sound of this pot before the taste of it — the low bubble of greens cooking down all afternoon, the kitchen warm, somebody guarding the potlikker like treasure. The cornmeal dumplings came from cooks who knew how to turn a pot of greens into supper for everyone. This is food that carried families through, and carried them forward.",
+  ing:["2 pounds collard or mixed greens, washed and sliced into ribbons","2 tablespoons olive oil","1 onion, diced","3 cloves garlic, minced","2 teaspoons smoked paprika","1 teaspoon apple cider vinegar, plus more to taste","5 cups vegetable broth","Pinch of red pepper flakes (optional)","For the dumplings: 1 cup fine cornmeal","½ teaspoon baking powder","¼ teaspoon salt","About ⅔ cup hot broth from the pot"],
+  steps:["Heat the oil in a large pot. Soften the onion 5 minutes, add garlic and smoked paprika, and stir 1 minute.","Add the greens in batches, letting each handful wilt before the next.","Pour in the broth, add pepper flakes if using, and simmer low and partly covered for 45 minutes to 1 hour, until silky.","Stir the cornmeal, baking powder, and salt together, then mix in hot potlikker until a thick, scoopable dough forms.","Drop spoonfuls of dough onto the simmering greens, cover, and steam 12–15 minutes without peeking.","Finish with vinegar, taste the potlikker, and adjust."],
+  subs:["A smoked turkey wing in the pot is the classic touch if your table eats meat.","Kale or cabbage can stand in for collards.","No cornmeal? Serve over hot cornbread or rice instead."],
+  serve:"Serve in bowls with plenty of potlikker, hot sauce on the table, and the dumplings broken right into the broth.",
+  tags:[], motifs:["leafy","grain","pot","spoon"] },
+
+{ c:"africanAmerican", name:"Lowcountry Red Rice", type:"Traditional Dish", conf:"Strong Heritage Match",
+  insp:"Inspired by Gullah Geechee red rice of the Carolina and Georgia Lowcountry — a direct culinary cousin of West African jollof.",
+  why:"Red rice is one of the clearest living links between Black Southern cooking and West African foodways, kept alive by Gullah Geechee families along the coast.",
+  story:"This recipe is inspired by foodways connected to the Lowcountry — where rice was knowledge, skill, and inheritance. Families with roots like yours may have encountered red rice at church suppers and family reunions, the pot scraped clean every time. It carries the memory of jollof across the water, and the pride of cooks who never needed a written recipe.",
+  ing:["1½ cups long-grain rice, rinsed","½ pound smoked sausage, sliced into half-moons","2 tablespoons neutral oil","1 onion, diced","1 green bell pepper, diced","2 celery stalks, diced","3 tablespoons tomato paste","1 (14 oz) can crushed tomatoes","1¾ cups chicken or vegetable broth","1 teaspoon smoked paprika","½ teaspoon dried thyme","Hot sauce, to taste"],
+  steps:["Brown the sausage in the oil in a heavy, lidded pot; set aside, leaving the drippings.","Cook the onion, bell pepper, and celery in the drippings until soft, about 6 minutes.","Stir in tomato paste, smoked paprika, and thyme; cook 2 minutes.","Add crushed tomatoes, broth, rice, and the sausage. Stir once and bring to a simmer.","Cover tightly and cook on the lowest heat 25 minutes. Rest 10 minutes off heat.","Fluff gently and finish with hot sauce to taste."],
+  subs:["Plant-based sausage or smoked mushrooms keep it meatless.","Turkey sausage works for pork-free tables.","Bake it covered at 350°F for the same time — many Lowcountry cooks swear by the oven."],
+  serve:"Serve with simple green beans or a vinegary cucumber salad, the way it lands at a reunion cookout plate.",
+  tags:["meat","pork"], motifs:["grain","tomato","pepper","pot"] },
+
+/* ---------------- CARIBBEAN ---------------- */
+{ c:"caribbean", name:"Rice and Peas with Coconut & Thyme", type:"Traditional Dish", conf:"Strong Heritage Match",
+  insp:"Inspired by the Sunday rice and peas of Jamaican and wider Caribbean kitchens.",
+  why:"Rice and peas is the anchor of the Caribbean Sunday table — coconut, thyme, and scallion built into one fragrant pot.",
+  story:"Families with roots like yours may have measured Sundays by this pot — kidney beans simmered in coconut milk until the house smelled like thyme and scallion, rice folded in to soak up every bit of it. It is the dish that waits for everyone to arrive, and the one plate that is never optional.",
+  ing:["1½ cups long-grain rice, rinsed","1 (15 oz) can kidney beans, with liquid","1 (13.5 oz) can coconut milk","1 cup water","3 scallions, smashed and left whole","3 sprigs fresh thyme (or 1 teaspoon dried)","2 cloves garlic, smashed","1 scotch bonnet, whole and uncut (optional)","½ teaspoon allspice","Salt to taste"],
+  steps:["Combine beans and their liquid, coconut milk, water, scallions, thyme, garlic, and allspice in a pot. Bring to a gentle boil.","Add the whole scotch bonnet if using — do not burst it.","Stir in the rice, return to a simmer, then cover tightly and cook on low 22–25 minutes.","Rest 10 minutes off heat. Remove the pepper, scallions, and thyme stems.","Fluff with a fork and taste for salt."],
+  subs:["Pigeon peas (gungo peas) are the classic holiday swap for kidney beans.","Dried thyme works; use a third of the amount.","Skip the scotch bonnet entirely for young eaters — the dish loses nothing essential."],
+  serve:"Serve alongside stewed vegetables, fried plantains, or whatever the main pot holds — rice and peas makes the plate complete.",
+  tags:[], motifs:["grain","bean","herb","bowl"] },
+
+{ c:"caribbean", name:"Brown Stew Chicken", type:"Traditional Dish", conf:"Strong Heritage Match",
+  insp:"Inspired by the brown stew tradition of Jamaica and the wider West Indies — browned sugar, deep gravy, slow care.",
+  why:"Brown stew is a defining technique of Caribbean home cooking: caramelized sugar, well-seasoned chicken, and a gravy worth fighting over.",
+  story:"This recipe is inspired by foodways connected to island kitchens where browning sugar in hot oil is a rite of passage — one moment too long and you start over, and everyone's grandmother knew the exact second. Families with roots like yours may have encountered this stew at weddings, nine-nights, and ordinary Tuesdays alike. The gravy is the point; the rice is its loyal companion.",
+  ing:["2 pounds bone-in chicken thighs, skin removed","1 tablespoon brown sugar","3 tablespoons neutral oil","1 onion, sliced","1 bell pepper, sliced","2 scallions, chopped","3 cloves garlic, minced","2 teaspoons fresh thyme","1 tablespoon soy sauce or browning sauce","1 teaspoon allspice","1 carrot, sliced","1½ cups water or broth","Salt and black pepper"],
+  steps:["Season the chicken well with salt, pepper, allspice, and half the thyme; rest 20 minutes (overnight is better).","Heat oil in a heavy pot over medium-high. Sprinkle in the brown sugar and let it melt and foam to a deep amber — watch closely.","Add the chicken and brown well on both sides in the darkened sugar, about 6 minutes.","Add onion, bell pepper, scallions, garlic, and remaining thyme; stir 3 minutes.","Add soy sauce, carrot, and water. Cover and simmer gently 35–40 minutes, until tender and the gravy has body.","Uncover for the last 10 minutes to thicken. Taste and adjust."],
+  subs:["Tamari keeps it gluten-free.","Boneless thighs work; reduce simmering to 25 minutes.","For a meatless table, use the same method with butter beans and chunks of pumpkin."],
+  serve:"Over rice and peas or plain white rice, with the gravy spooned generously and a side of steamed cabbage.",
+  tags:["meat","poultry"], motifs:["pot","pepper","herb","spoon"] },
+
+/* ---------------- ITALIAN ---------------- */
+{ c:"italian", name:"Pasta e Fagioli della Casa", type:"Traditional Dish", conf:"Strong Heritage Match",
+  insp:"Inspired by the bean-and-pasta pots of the Italian countryside — cucina povera at its proudest.",
+  why:"Pasta e fagioli is the dish Italian families carried everywhere they went: beans, pasta, and patience turned into something greater than its parts.",
+  story:"Families with roots like yours may have encountered this pot in a kitchen where nothing was wasted and everything was loved — the rind of the cheese dropped in to simmer, the beans creamy, the pasta cooked right in the broth so it drinks up every flavor. It is humble food that never once felt poor at the table.",
+  ing:["2 tablespoons olive oil, plus more to finish","1 onion, finely diced","2 carrots, finely diced","2 celery stalks, finely diced","3 cloves garlic, minced","2 tablespoons tomato paste","1 teaspoon dried oregano","2 (15 oz) cans cannellini or borlotti beans, drained","5 cups vegetable broth","1 cup small pasta (ditalini or broken spaghetti)","1 sprig rosemary","Grated hard cheese, to serve (optional)","Salt and black pepper"],
+  steps:["Warm the olive oil in a heavy pot. Cook onion, carrot, and celery with a pinch of salt until soft and sweet, 8–10 minutes.","Add garlic, tomato paste, and oregano; cook 2 minutes until brick-colored.","Add the beans, broth, and rosemary. Simmer 15 minutes.","Mash about a cup of the beans against the side of the pot to thicken the broth.","Add the pasta and cook at a lively simmer until just tender, 8–10 minutes, stirring so it doesn't stick.","Remove the rosemary stem. Rest 5 minutes — it should be thick enough to almost stand a spoon in. Finish with olive oil and black pepper."],
+  subs:["Gluten-free pasta works; add it a few minutes later as it cooks faster.","Any white or pinto bean will do the job honorably.","Skip the cheese and it's fully plant-based."],
+  serve:"In wide bowls with a swirl of good olive oil, black pepper, and bread for the bottom of the bowl.",
+  tags:["gluten"], motifs:["bean","herb","pot","tomato"] },
+
+{ c:"italian", name:"Caponata di Casa", type:"Traditional Dish", conf:"Strong Heritage Match",
+  insp:"Inspired by Sicilian caponata — sweet-and-sour eggplant cooked the way of the island's market kitchens.",
+  why:"Caponata carries Sicily's whole story in one pan: eggplant, vinegar, and a sweet-sour balance shaped by centuries of Mediterranean crossings.",
+  story:"This recipe is inspired by foodways connected to Sicily, where the agrodolce — sweet and sour together — tells of every ship that ever docked at Palermo. Families with roots like yours may have known a version made in big batches when eggplants were cheap, better the second day, eaten at room temperature with bread and no hurry at all.",
+  ing:["1 large eggplant, cut into 1-inch cubes","4 tablespoons olive oil, divided","1 onion, sliced","2 celery stalks, sliced","1 (14 oz) can diced tomatoes, drained","¼ cup green olives, halved","2 tablespoons capers, rinsed","3 tablespoons red wine vinegar","1 tablespoon sugar","Salt and black pepper","Fresh basil, torn, to finish"],
+  steps:["Salt the eggplant cubes and let them sit 20 minutes; pat dry.","Brown the eggplant in 3 tablespoons of oil over medium-high heat until golden on most sides; set aside.","Add the last tablespoon of oil and soften the onion and celery, about 6 minutes.","Return the eggplant with the tomatoes, olives, and capers. Simmer 10 minutes.","Stir the vinegar and sugar together, pour over, and cook 3–4 minutes more until glossy.","Cool to warm or room temperature — caponata insists on it — and finish with basil."],
+  subs:["White wine vinegar or apple cider vinegar both work.","Zucchini can join or replace some eggplant.","Raisins are a traditional Palermo addition if your table likes them."],
+  serve:"Spoon onto toasted bread, beside rice, or as part of a table of small dishes. Better tomorrow than today.",
+  tags:[], motifs:["tomato","herb","lemon","bowl"] },
+
+/* ---------------- IRISH ---------------- */
+{ c:"irish", name:"Colcannon with Buttered Leeks", type:"Traditional Dish", conf:"Strong Heritage Match",
+  insp:"Inspired by colcannon, the mashed potato and greens dish at the heart of Irish home cooking.",
+  why:"Colcannon is one of Ireland's oldest comfort dishes — potatoes and greens beaten together with butter, served with a well in the middle.",
+  story:"Families with roots like yours may have encountered colcannon on cold evenings and on Halloween, when charms were hidden in the mash for luck. The well of butter in the center was the rule of the house: every forkful of potato dipped on its way up. Plain food, made with care, and never once apologized for.",
+  ing:["2 pounds floury potatoes, peeled and quartered","4 tablespoons butter, divided","2 leeks, white and light green parts, sliced and rinsed well","3 cups finely shredded green cabbage or kale","½ cup whole milk, warmed","Salt and white or black pepper","Chopped chives, to finish"],
+  steps:["Boil the potatoes in salted water until completely tender, 15–18 minutes; drain and let them steam dry in the pot.","Meanwhile, melt 2 tablespoons butter in a skillet and cook the leeks gently 5 minutes.","Add the cabbage with a splash of water; cover and cook until silky, 5–6 minutes.","Mash the potatoes with the warm milk until fluffy.","Fold the leeks and cabbage through. Season generously.","Mound into a serving bowl, press a well in the center, and set the last of the butter in it to melt. Scatter with chives."],
+  subs:["Olive oil and oat milk make it dairy-free with no shame in it.","Kale is as traditional as cabbage — use what you have.","Scallions instead of leeks makes it 'champ-style.'"],
+  serve:"As the center of the plate with roasted carrots and parsnips, or beside whatever the main pot holds.",
+  tags:["dairy"], motifs:["potato","leafy","spoon","herb"] },
+
+{ c:"irish", name:"Irish Vegetable & Barley Pot", type:"Traditional Dish", conf:"Strong Heritage Match",
+  insp:"Inspired by the slow barley broths of rural Ireland, where the stockpot rarely went cold.",
+  why:"Barley pots and vegetable broths sustained Irish households for generations — frugal, warming, and endlessly adaptable to the garden and the season.",
+  story:"This recipe is inspired by foodways connected to the Irish countryside, where a pot like this stretched a garden through the week. Families with roots like yours may have known it thickened with barley and pearl-soft vegetables, eaten with brown bread and butter while the rain made its arguments outside.",
+  ing:["2 tablespoons olive oil","1 onion, chopped","2 leeks, sliced","3 carrots, thickly sliced","2 parsnips, chopped","2 potatoes, cubed","¾ cup pearl barley, rinsed","7 cups vegetable broth","2 bay leaves","1 teaspoon dried thyme","Salt and black pepper","Big handful of chopped parsley"],
+  steps:["Warm the oil in your largest pot. Soften the onion and leeks 5 minutes.","Add carrots, parsnips, and potatoes; stir 3 minutes.","Add the barley, broth, bay leaves, and thyme. Bring to a boil, then simmer gently, partly covered, 40–45 minutes, until the barley is tender.","Top up with water if it gets thicker than you like — this pot is flexible.","Remove the bay leaves, season well, and stir through the parsley."],
+  subs:["Use brown rice instead of barley for a gluten-free pot (same timing).","Turnip or cabbage can join or swap for the parsnips.","A knob of butter at the end is traditional if dairy suits your table."],
+  serve:"In deep bowls with soda bread or any brown bread, and butter if your table keeps it.",
+  tags:["gluten"], motifs:["potato","grain","pot","herb"] },
+
+/* ---------------- MEXICAN ---------------- */
+{ c:"mexican", name:"Frijoles de la Olla with Warm Tortillas", type:"Traditional Dish", conf:"Strong Heritage Match",
+  insp:"Inspired by frijoles de la olla — the pot of beans at the foundation of the Mexican home kitchen.",
+  why:"A pot of beans is the beginning of nearly everything in Mexican home cooking, simmered slow with onion and epazote, eaten first in their own broth.",
+  story:"Families with roots like yours may have encountered this pot as the heartbeat of the kitchen — beans put on early, the broth tasted and salted like a small ceremony, the first bowls eaten with nothing but warm tortillas. Everything else the kitchen made started here.",
+  ing:["1 pound dried pinto or black beans, picked over and rinsed","½ white onion, in one piece","4 cloves garlic, smashed","1 sprig epazote or 2 bay leaves","2 teaspoons salt, added late","Water to cover by 3 inches","12 corn tortillas, to serve","Optional to top: diced onion, cilantro, crumbled cheese, lime"],
+  steps:["Put beans, onion, garlic, and epazote in a heavy pot. Cover with water by 3 inches.","Bring to a boil, then lower to the gentlest simmer, partly covered.","Cook 1½ to 2½ hours depending on the beans' age, adding hot water as needed to keep them swimming.","When the beans are fully creamy inside, add the salt and simmer 15 minutes more.","Warm the tortillas one by one on a dry skillet until soft and toasty.","Serve the beans in their broth, topped as you like."],
+  subs:["No epazote? Bay leaves and a pinch of oregano carry it fine.","Canned beans in a pinch: simmer 20 minutes with the aromatics in broth.","A dried chile in the pot adds gentle depth without real heat."],
+  serve:"First bowls in their own broth with tortillas; tomorrow's beans become refritos, tacos, and everything else.",
+  tags:[], motifs:["bean","bread","pot","pepper"] },
+
+{ c:"mexican", name:"Tinga de Pollo", type:"Traditional Dish", conf:"Strong Heritage Match",
+  insp:"Inspired by tinga poblana — the smoky chipotle-tomato chicken of Puebla's family kitchens.",
+  why:"Tinga is weeknight Mexican home cooking at its best: shredded chicken in a smoky tomato-chipotle sauce that turns a simple tostada into an event.",
+  story:"This recipe is inspired by foodways connected to Puebla, where tinga is what a busy, brilliant cook makes look easy. Families with roots like yours may have encountered it piled onto tostadas at birthday gatherings — the pan scraped, the last spoonful negotiated. Smoke, sweetness, and patience in one skillet.",
+  ing:["1½ pounds boneless chicken thighs","1 white onion, half whole and half thinly sliced","2 cloves garlic, whole, plus 2 minced","1 bay leaf","4 ripe tomatoes (or one 14 oz can fire-roasted)","2 chipotles in adobo, plus 1 tablespoon of the sauce","1 teaspoon dried oregano","2 tablespoons neutral oil","Salt","Tostadas or warm tortillas, to serve"],
+  steps:["Simmer the chicken with the onion half, whole garlic, bay leaf, and salted water to cover, 18–20 minutes. Cool slightly and shred; keep a cup of the broth.","Blend the tomatoes, chipotles, adobo sauce, and oregano until smooth.","Heat the oil in a wide skillet and cook the sliced onion until golden at the edges, 6 minutes. Add minced garlic for 1 minute.","Pour in the tomato-chipotle blend and simmer 8 minutes, until darkened.","Add the shredded chicken and a splash of reserved broth; simmer 10 minutes until the sauce clings.","Taste for salt — it should be smoky, a little sweet, gently spicy."],
+  subs:["One chipotle (or just the adobo sauce) for milder tables.","Jackfruit or mushrooms take the chicken's place beautifully for a meatless tinga.","No tostadas? Pile onto rice or into warm tortillas."],
+  serve:"On tostadas with shredded lettuce, crema, and lime — or spooned over rice when the cupboard says so.",
+  tags:["meat","poultry"], motifs:["tomato","pepper","onion","pot"] },
+
+/* ---------------- GERMAN & CENTRAL EUROPEAN ---------------- */
+{ c:"german", name:"Kartoffelsuppe (Farmhouse Potato Soup)", type:"Traditional Dish", conf:"Strong Heritage Match",
+  insp:"Inspired by the potato soups of German and Central European farmhouse kitchens.",
+  why:"Potato soup is the quiet workhorse of German home cooking — marjoram-scented, thick enough to matter, and made from what the cellar held.",
+  story:"Families with roots like yours may have encountered this soup on washing days and winter evenings — the big pot that asked little and gave much. Marjoram is its signature, leeks its good manners. It was ladled out with bread and the firm belief that a proper soup solves most of what a day can bring.",
+  ing:["2 tablespoons olive oil or butter","1 onion, diced","2 leeks, sliced","2 carrots, diced","2 celery stalks, diced","2 pounds potatoes, peeled and cubed","6 cups vegetable broth","2 teaspoons dried marjoram","1 bay leaf","Salt, black pepper, and a grating of nutmeg","Chopped parsley and mustard, to finish"],
+  steps:["Warm the oil in a large pot and soften the onion, leeks, carrot, and celery, 8 minutes.","Add potatoes, broth, marjoram, and bay leaf. Simmer 20–25 minutes until everything is tender.","Remove the bay leaf. Mash or blend about half the soup, leaving the rest chunky.","Season with salt, pepper, and the smallest grating of nutmeg.","Finish bowls with parsley and a tiny spoonful of mustard stirred in — an old farmhouse trick."],
+  subs:["Smoked sausage rounds are the classic addition if your table eats meat — warm them in at the end.","Celery root instead of celery deepens the flavor.","Skip the butter and it's fully plant-based."],
+  serve:"With dark bread and butter or a simple cucumber salad with dill and vinegar.",
+  tags:[], motifs:["potato","herb","pot","spoon"] },
+
+{ c:"german", name:"Braised Red Cabbage with Apples & Pan Potatoes", type:"Traditional Dish", conf:"Strong Heritage Match",
+  insp:"Inspired by Rotkohl, the sweet-sour braised red cabbage of German Sunday tables.",
+  why:"Sweet-and-sour red cabbage with apples is a fixture of German and Central European Sunday cooking, made in big pots and famously better reheated.",
+  story:"This recipe is inspired by foodways connected to kitchens where the cabbage went on before church and was judged — lovingly, but seriously — on its balance of sweet and sour. Families with roots like yours may have encountered it beside roasts and dumplings, deep purple and glossy, the recipe argued over and never written down.",
+  ing:["1 small red cabbage (about 2 pounds), cored and thinly sliced","2 tablespoons neutral oil","1 onion, sliced","2 apples, peeled and grated","3 tablespoons apple cider vinegar","2 tablespoons brown sugar","½ cup water or broth","1 bay leaf","2 whole cloves or a pinch of ground","Salt and pepper","For the potatoes: 1½ pounds small potatoes, halved, pan-fried golden in oil with salt"],
+  steps:["Heat the oil in a wide pot and soften the onion 5 minutes.","Add the cabbage in batches, stirring until it slackens.","Add apples, vinegar, sugar, water, bay leaf, and cloves. Stir well.","Cover and braise on low 45–60 minutes, stirring now and then, until silky and deep-flavored.","Meanwhile, pan-fry the potatoes in a skillet until golden and tender, 15–18 minutes.","Season the cabbage to taste — it should land sweet, sour, and warm all at once."],
+  subs:["Red currant or lingonberry jam instead of sugar is a beloved variation.","Red wine vinegar works in place of cider vinegar.","A grated raw potato stirred in near the end thickens the braise the old way."],
+  serve:"Cabbage and crisp potatoes side by side; add a roast, sausage, or pan-fried mushrooms as your table prefers.",
+  tags:[], motifs:["onion","potato","leafy","bowl"] },
+
+/* ---------------- EASTERN EUROPEAN ---------------- */
+{ c:"easternEuropean", name:"Mushroom & Cabbage Pierogi", type:"Traditional Dish", conf:"Strong Heritage Match",
+  insp:"Inspired by the pierogi-making tables of Poland and Eastern Europe — a whole afternoon of folding, flour, and talk.",
+  why:"Pierogi are the great communal project of Eastern European kitchens; the mushroom-and-cabbage filling is among the oldest and most traditional.",
+  story:"Families with roots like yours may have encountered pierogi as an event, not just a dinner — the kitchen table floured, generations folding side by side, the slow accumulation of perfect half-moons. The mushroom and cabbage filling is the old-country one, made for winters and holy days and any day that needed mending.",
+  ing:["For the dough: 2½ cups all-purpose flour","1 teaspoon salt","¾ cup warm water","2 tablespoons neutral oil","For the filling: 2 tablespoons oil","1 onion, finely diced","8 oz mushrooms, finely chopped","3 cups finely shredded cabbage","½ teaspoon caraway seeds (optional)","Salt and lots of black pepper","To serve: fried onions and a spoonful of sour cream or plant yogurt"],
+  steps:["Mix flour and salt; add warm water and oil and knead 5 minutes into a soft, smooth dough. Rest under a bowl 30 minutes.","Cook the onion in oil until golden, add mushrooms until their water cooks off, then the cabbage until soft and sweet, 10 minutes. Season hard. Cool.","Roll the dough thin (about ⅛ inch) and cut 3-inch rounds.","Spoon filling onto each round, fold, and pinch the edges firmly shut.","Boil in salted water until they float, then 2 minutes more.","Serve boiled, or pan-fry in oil until golden on both sides — the contested, correct way."],
+  subs:["Sauerkraut (rinsed) can replace fresh cabbage for the deeper old-world flavor.","Mashed potato and fried onion is the other classic filling.","Store-bought dumpling wrappers will do on a tired day; no one at this table will tell."],
+  serve:"In a pile with fried onions on top, something cool and creamy alongside, and more than you think you need.",
+  tags:["gluten"], motifs:["onion","leafy","bread","spoon"] },
+
+{ c:"easternEuropean", name:"Garden Borscht with Dill", type:"Traditional Dish", conf:"Strong Heritage Match",
+  insp:"Inspired by the beet borscht traditions of Ukraine, Poland, and the wider region.",
+  why:"Borscht is the signature pot of Eastern Europe — beets, cabbage, and dill in a broth that's sweet, sour, and deeply restorative.",
+  story:"This recipe is inspired by foodways connected to kitchens where the borscht pot was a standing institution — every family's version slightly different and fiercely defended. Families with roots like yours may have encountered it ruby-red and steaming, with dark bread, the dill snowing down at the table.",
+  ing:["2 tablespoons oil","1 onion, diced","2 carrots, grated","3 medium beets, peeled and grated","2 potatoes, cubed","3 cups shredded cabbage","6 cups vegetable broth","1 (14 oz) can diced tomatoes","2 tablespoons apple cider vinegar or lemon juice","1 teaspoon sugar","2 bay leaves","Salt and pepper","Big bunch of fresh dill, chopped","Sour cream or plant yogurt, to serve"],
+  steps:["Warm the oil and soften the onion and carrots, 5 minutes.","Add the beets and cook, stirring, 5 minutes more — the pot turns jewel-red.","Add potatoes, cabbage, broth, tomatoes, and bay leaves. Simmer 25 minutes.","Add vinegar and sugar; simmer 5 minutes. The flavor should land bright, earthy, and a little sweet.","Remove bay leaves, season well, and stir in half the dill.","Ladle into bowls with the rest of the dill and a spoonful of something creamy."],
+  subs:["Pre-cooked beets work; add them with the tomatoes.","White beans make it heartier without changing its soul.","Lemon juice or vinegar — whichever your shelf offers — for the sour note."],
+  serve:"With dark rye bread or any sturdy bread, and the bowl topped generously with dill.",
+  tags:[], motifs:["onion","potato","herb","bowl"] },
+/* ---------------- JEWISH ---------------- */
+{ c:"jewish", name:"Golden Chicken Soup with Dill & Rice", type:"Traditional Dish", conf:"Strong Heritage Match",
+  insp:"Inspired by the golden chicken soups of Ashkenazi kitchens — the pot that answered every occasion.",
+  why:"Golden chicken soup is the centerpiece of Ashkenazi Jewish home cooking — Friday nights, celebrations, and recoveries all began at this pot.",
+  story:"Families with roots like yours may have encountered this soup as the answer to everything — joy, illness, Friday evening, a guest at the door. The gold on top was a point of pride; the dill was non-negotiable. A pot like this carried whole families across continents without ever changing its heart.",
+  ing:["2½ pounds bone-in chicken pieces","1 large onion, halved, skin on","3 carrots, in big pieces","3 celery stalks with leaves","1 parsnip, halved","4 sprigs fresh dill, plus more chopped to serve","4 sprigs parsley","10 cups cold water","2 teaspoons salt, plus more to taste","½ cup white rice, cooked separately","Black pepper"],
+  steps:["Put the chicken in your biggest pot with the cold water. Bring slowly to a bare simmer, skimming the foam as it rises.","Add onion, carrots, celery, parsnip, dill, parsley, and salt.","Simmer — never boil — partly covered, 1½ to 2 hours. The broth should turn deep gold.","Strain the broth. Pull the chicken into bite-size pieces; slice the carrots.","Return broth, chicken, and carrots to the pot. Taste and season properly — this is the important step.","Serve over a scoop of rice with fresh dill and black pepper."],
+  subs:["Matzo balls or fine egg noodles instead of rice, when gluten suits the table.","Turnip can stand in for parsnip.","A whole clove of garlic in the pot is a quiet, traditional upgrade."],
+  serve:"Hot, first course or whole supper, with challah or any good bread standing by.",
+  tags:["meat","poultry"], motifs:["pot","herb","spoon","onion"] },
+
+{ c:"jewish", name:"Sephardi Chickpea & Spinach Stew", type:"Traditional Dish", conf:"Strong Heritage Match",
+  insp:"Inspired by the chickpea and spinach dishes of Sephardi kitchens around the Mediterranean.",
+  why:"Chickpeas with spinach, cumin, and lemon is a beloved Sephardi tradition — Sabbath-friendly, pantry-built, and centuries deep.",
+  story:"This recipe is inspired by foodways connected to Sephardi kitchens from Spain to Salonika to Izmir — where chickpeas, greens, and warm spice made a dish elegant enough for a holy day and simple enough for a Tuesday. Families with roots like yours may have encountered it with bread for the sauce, lemon at the table, and seconds assumed.",
+  ing:["3 tablespoons olive oil","1 onion, diced","4 cloves garlic, sliced","1½ teaspoons ground cumin","1 teaspoon sweet paprika","½ teaspoon cinnamon","2 (15 oz) cans chickpeas, drained","1 (14 oz) can diced tomatoes","1 cup vegetable broth","10 oz spinach (fresh or thawed frozen)","Juice of half a lemon","Salt and black pepper"],
+  steps:["Warm the olive oil and cook the onion until golden, 6–7 minutes.","Add garlic, cumin, paprika, and cinnamon; stir 1 minute until the kitchen smells like the recipe is working.","Add chickpeas, tomatoes, and broth. Simmer 15 minutes, mashing a few chickpeas to thicken.","Fold in the spinach until just wilted.","Finish with lemon juice, taste, and season.","Rest 5 minutes; the spices settle in beautifully."],
+  subs:["Chard or kale instead of spinach — add 5 minutes earlier.","A pinch of saffron in the broth is a luxurious old touch.","White beans work when the chickpea jar is empty."],
+  serve:"With rice, couscous, or flatbread, lemon wedges at the table.",
+  tags:[], motifs:["bean","leafy","lemon","pot"] },
+
+/* ---------------- CHINESE ---------------- */
+{ c:"chinese", name:"Ginger-Scallion Noodles with Garlicky Greens", type:"Traditional Dish", conf:"Strong Heritage Match",
+  insp:"Inspired by the ginger-scallion oil of Cantonese home kitchens — a sauce that makes everything it touches taste like family.",
+  why:"Ginger-scallion sauce is one of the great everyday treasures of Cantonese cooking, spooned over noodles, rice, and whatever the wok holds.",
+  story:"Families with roots like yours may have encountered this sauce made by feel — a mountain of minced ginger and scallion, the oil heated until it just sings, poured over to bloom in one dramatic sizzle. It is the taste of a kitchen that never needed to look at a recipe.",
+  ing:["12 oz wheat noodles (or rice noodles)","6 scallions, very finely sliced","3 tablespoons fresh ginger, finely minced","½ teaspoon salt","⅓ cup neutral oil","2 teaspoons soy sauce or tamari","1 teaspoon toasted sesame oil","1 pound baby bok choy or Chinese broccoli, halved","2 cloves garlic, sliced","Pinch of sugar"],
+  steps:["Mix the scallions, ginger, and salt in a heatproof bowl.","Heat the neutral oil in a small pan until it shimmers, then pour it carefully over the scallion-ginger — it should sizzle hard. Stir in soy sauce and sesame oil.","Cook the noodles per the package; drain, reserving a splash of water.","In the same pot or a wok, stir-fry the garlic 30 seconds, add the greens with the pinch of sugar and a splash of water, and cook until just tender, 3–4 minutes.","Toss the noodles with most of the ginger-scallion sauce, loosening with noodle water.","Plate with the greens and the last spoonfuls of sauce on top."],
+  subs:["Rice noodles keep it gluten-free (with tamari).","Any quick-cooking green works: spinach, broccoli, snap peas.","The sauce keeps a week in the fridge and improves rice, eggs, and everything else."],
+  serve:"In wide bowls, greens leaning against the noodles, extra sauce within reach.",
+  tags:["gluten"], motifs:["bowl","leafy","herb","spoon"] },
+
+{ c:"chinese", name:"Red-Cooked Chicken Thighs", type:"Traditional Dish", conf:"Strong Heritage Match",
+  insp:"Inspired by hong shao — the red-cooking braise of Chinese family kitchens, glossy with soy and warm spice.",
+  why:"Red-cooking is a foundational Chinese braising technique: soy, sugar, ginger, and patience turning simple cuts into Sunday-grade supper.",
+  story:"This recipe is inspired by foodways connected to kitchens where the braising liquid was almost an heirloom — tasted, corrected, remembered. Families with roots like yours may have encountered red-cooked dishes at New Year tables and ordinary dinners alike, the sauce spooned over rice until the bowl shone.",
+  ing:["2 pounds bone-in chicken thighs, skin removed","2 tablespoons neutral oil","2 tablespoons sugar","4 slices fresh ginger","3 scallions, in long pieces","3 cloves garlic, smashed","⅓ cup soy sauce or tamari","2 tablespoons rice vinegar","1 star anise (optional)","1 small cinnamon stick (optional)","1½ cups water","Steamed rice, to serve"],
+  steps:["Heat the oil in a heavy pot over medium. Add the sugar and let it melt to a light amber.","Add the chicken and turn to coat in the caramel, browning lightly, 4–5 minutes.","Add ginger, scallions, garlic, soy sauce, vinegar, star anise, cinnamon, and water.","Simmer, partly covered, 35 minutes, turning the chicken once or twice.","Uncover and simmer 10 minutes more until the sauce is glossy and reduced.","Fish out the whole spices and serve over rice with the sauce spooned generously."],
+  subs:["Tamari for gluten-free; the dish loses nothing.","Tofu or king oyster mushrooms braise beautifully in the same liquid for a meatless version (20 minutes).","No star anise? A pinch of five-spice or simply skip it."],
+  serve:"Over steamed rice with stir-fried or simply blanched greens alongside.",
+  tags:["meat","poultry"], motifs:["pot","bowl","herb","onion"] },
+
+/* ---------------- SOUTH ASIAN ---------------- */
+{ c:"indian", name:"Dal Tadka (Everyday Golden Lentils)", type:"Traditional Dish", conf:"Strong Heritage Match",
+  insp:"Inspired by the daily dal of South Asian home kitchens — and the tadka that finishes it like a signature.",
+  why:"Dal is the daily heartbeat of South Asian cooking, and the sizzling spiced-oil tadka poured over at the end is the move every family makes its own.",
+  story:"Families with roots like yours may have encountered dal as the constant — the dish that was always there, always slightly different, always right. The tadka is the moment of theater: cumin seeds crackling in hot oil, poured over the pot in a hiss that announces dinner better than any bell.",
+  ing:["1 cup red lentils (masoor dal), rinsed","3½ cups water","½ teaspoon turmeric","1 teaspoon salt","For the tadka: 3 tablespoons oil or ghee-style butter alternative","1 teaspoon cumin seeds","1 small onion, finely diced","2 cloves garlic, sliced","1 small tomato, chopped","½ teaspoon ground coriander","Pinch of chili powder (optional)","Fresh cilantro and lemon, to finish"],
+  steps:["Simmer the lentils with water and turmeric, partly covered, 15–20 minutes, until completely soft. Whisk briefly until creamy; add salt.","For the tadka, heat the oil in a small pan. Add cumin seeds and let them crackle, 30 seconds.","Add the onion and cook until deeply golden, 6–7 minutes. Add garlic for 1 minute.","Add tomato, coriander, and chili powder; cook until jammy, 3–4 minutes.","Pour the sizzling tadka over the dal — listen for the hiss — and stir once, lazily.","Finish with cilantro and a squeeze of lemon."],
+  subs:["Yellow split peas or moong dal work; adjust simmering time.","Ginger in the tadka is a welcome guest.","Skip the chili entirely for young eaters — the cumin carries it."],
+  serve:"Over rice or with flatbread, with something crunchy or pickled on the side.",
+  tags:[], motifs:["bowl","grain","herb","onion"] },
+
+{ c:"indian", name:"Vegetable Pulao with Whole Spices", type:"Traditional Dish", conf:"Strong Heritage Match",
+  insp:"Inspired by the fragrant rice pulaos of South Asian family kitchens, made for guests and good days.",
+  why:"Pulao is the dish South Asian kitchens reach for when rice needs to feel like an occasion — whole spices blooming in oil, vegetables folded through.",
+  story:"This recipe is inspired by foodways connected to kitchens where the smell of cardamom hitting hot oil meant something good was coming. Families with roots like yours may have encountered pulao at celebrations and Sunday lunches, every household with its own quiet ratio of spice to rice that was never quite shared in full.",
+  ing:["1½ cups basmati rice, rinsed and soaked 20 minutes","3 tablespoons neutral oil","1 teaspoon cumin seeds","4 green cardamom pods, bruised","1 small cinnamon stick","2 bay leaves","1 onion, thinly sliced","1 tablespoon ginger-garlic paste","2 cups mixed vegetables (peas, carrots, beans, cauliflower)","2¼ cups water","1¼ teaspoons salt","Fresh cilantro, to finish"],
+  steps:["Heat the oil in a heavy, lidded pot. Bloom the cumin, cardamom, cinnamon, and bay leaves 30 seconds.","Add the onion and cook to a deep golden, 8 minutes — this is the flavor, don't rush it.","Stir in ginger-garlic paste for 1 minute, then the vegetables for 2 minutes.","Drain the rice and fold it in gently to coat in the spiced oil.","Add water and salt, bring to a boil, then cover tightly and cook on lowest heat 15 minutes.","Rest 10 minutes off heat, then open, fluff with a fork, and shower with cilantro."],
+  subs:["Frozen mixed vegetables are entirely respectable here.","Toasted cashews on top, when nuts are welcome at the table.","Any long-grain rice works if basmati is out of reach."],
+  serve:"With dal, yogurt or a plant yogurt raita, and a wedge of lemon.",
+  tags:[], motifs:["grain","herb","onion","bowl"] },
+
+/* ---------------- FILIPINO ---------------- */
+{ c:"filipino", name:"Chicken Adobo", type:"Traditional Dish", conf:"Strong Heritage Match",
+  insp:"Inspired by adobo — the soy-vinegar braise that anchors the Filipino family table.",
+  why:"Adobo is the defining dish of the Filipino home kitchen: vinegar, soy, garlic, and bay transforming a simple braise into an heirloom.",
+  story:"Families with roots like yours may have encountered adobo as the dish every household made differently and every household made best. More vinegar, less soy, a whisper of sugar, never stir while it simmers — the rules were family law. It travels, it keeps, and it tastes like coming home.",
+  ing:["2 pounds bone-in chicken thighs","½ cup cane or white vinegar","⅓ cup soy sauce or tamari","1 head garlic, cloves smashed","3 bay leaves","1 teaspoon whole black peppercorns","1 tablespoon neutral oil","½ cup water","1 teaspoon sugar (optional)","Steamed rice, to serve"],
+  steps:["Marinate the chicken in vinegar, soy sauce, and half the garlic, 30 minutes (or overnight).","Heat the oil in a heavy pot and lightly brown the remaining garlic.","Add the chicken with its marinade, bay leaves, peppercorns, water, and sugar if using.","Bring to a simmer without stirring — let the vinegar mellow first, about 10 minutes.","Cover and simmer gently 30 minutes, turning once.","Uncover and reduce the sauce 8–10 minutes until it glosses the chicken. Serve over rice."],
+  subs:["Tamari keeps it gluten-free.","Coconut vinegar is wonderfully traditional if you can find it.","Tofu and mushrooms adobo beautifully for a meatless pot — 20 minutes simmering."],
+  serve:"Over plenty of steamed rice, sauce spooned over, with sliced cucumber or tomatoes alongside.",
+  tags:["meat","poultry"], motifs:["pot","herb","spoon","bowl"] },
+
+{ c:"filipino", name:"Ginataang Gulay (Vegetables in Coconut Milk)", type:"Traditional Dish", conf:"Strong Heritage Match",
+  insp:"Inspired by ginataan — the coconut-milk simmers of Filipino provincial kitchens.",
+  why:"Cooking vegetables in coconut milk (ginataan) is a beloved everyday tradition across the Philippine islands, gentle and deeply comforting.",
+  story:"This recipe is inspired by foodways connected to kitchens where coconut milk was the great softener — squash and long beans simmered until tender, ginger keeping everything bright. Families with roots like yours may have encountered it on tables where rice was the constant and the day's vegetables found their way into the silkiest of sauces.",
+  ing:["2 tablespoons neutral oil","1 onion, sliced","4 cloves garlic, minced","1 tablespoon fresh ginger, julienned","1 small kabocha or butternut squash (about 1½ pounds), cubed","8 oz green beans or long beans, in 2-inch pieces","1 (13.5 oz) can coconut milk","½ cup water","1 tablespoon soy sauce or tamari","Pinch of chili flakes (optional)","Salt and pepper"],
+  steps:["Heat the oil and soften the onion, garlic, and ginger, 3–4 minutes.","Add the squash and stir to coat, 2 minutes.","Pour in the coconut milk and water; simmer gently 12 minutes.","Add the green beans and soy sauce; simmer 8 minutes more, until the squash is tender and the sauce has thickened.","Season with chili flakes if using, salt, and pepper.","Rest 5 minutes — the sauce settles into its silkiest self."],
+  subs:["Sweet potato stands in for squash easily.","Spinach folded in at the end is a lovely addition.","Shrimp or tofu are traditional add-ins; choose what suits your table."],
+  serve:"Over steamed rice, with the coconut sauce spooned generously.",
+  tags:[], motifs:["bowl","leafy","herb","onion"] },
+
+/* ---------------- GREEK ---------------- */
+{ c:"greek", name:"Fasolada (Greek White Bean Soup)", type:"Traditional Dish", conf:"Strong Heritage Match",
+  insp:"Inspired by fasolada, often called the national dish of Greece — beans, olive oil, and time.",
+  why:"Fasolada has fed Greek families for centuries — a pot of white beans made luxurious with good olive oil and finished with lemon.",
+  story:"Families with roots like yours may have encountered fasolada on winter weekdays and fasting days — the pot that proved a handful of beans and a generous pour of olive oil could taste like wealth. It was eaten with bread, olives, and the conviction that simple food, done right, needs no defending.",
+  ing:["⅓ cup olive oil, plus more to finish","1 onion, diced","2 carrots, sliced","2 celery stalks, sliced","3 cloves garlic, minced","2 tablespoons tomato paste","2 (15 oz) cans white beans, drained","5 cups vegetable broth","1 teaspoon dried oregano","1 bay leaf","Juice of half a lemon","Salt and black pepper"],
+  steps:["Warm the olive oil in a big pot and soften the onion, carrots, and celery, 8 minutes.","Add garlic and tomato paste; cook 2 minutes.","Add beans, broth, oregano, and bay leaf. Simmer 25 minutes.","Mash a ladleful of beans to thicken the broth.","Remove the bay leaf, add lemon juice, and season boldly.","Finish each bowl with a serious pour of olive oil — this is the dish's whole argument."],
+  subs:["Dried beans, soaked overnight, are the classic start (simmer 1½ hours).","A pinch of chili flakes if your table runs warm.","Spinach stirred in at the end adds a garden note."],
+  serve:"With crusty bread, olives, and something briny alongside.",
+  tags:[], motifs:["bean","lemon","herb","pot"] },
+
+{ c:"greek", name:"Briam (Slow-Roasted Garden Vegetables)", type:"Traditional Dish", conf:"Strong Heritage Match",
+  insp:"Inspired by briam, the Greek tradition of roasting the summer garden in one pan with olive oil and oregano.",
+  why:"Briam is how Greek kitchens honor vegetables: everything the garden gives, sliced into one pan, roasted slowly in olive oil until sweet and collapsing.",
+  story:"This recipe is inspired by foodways connected to villages where the briam pan went to the baker's oven on the way to morning errands and came home in time for lunch. Families with roots like yours may have encountered it warm, never hot, with feta and bread — summer compressed into one olive-slicked pan.",
+  ing:["2 medium potatoes, thinly sliced","1 large eggplant, sliced into half-moons","2 zucchini, sliced","1 red onion, sliced","2 ripe tomatoes, sliced, plus 1 cup crushed tomatoes","4 cloves garlic, sliced","½ cup olive oil","2 teaspoons dried oregano","Salt and black pepper","Fresh parsley, to finish"],
+  steps:["Heat the oven to 400°F (200°C).","Layer all the vegetables and garlic in a large baking dish, seasoning between layers.","Pour the crushed tomatoes and olive oil over everything; scatter with oregano.","Cover with foil and roast 40 minutes.","Uncover and roast 25–30 minutes more, until the edges caramelize and the juices thicken.","Rest at least 15 minutes — briam is best warm, not hot — and finish with parsley."],
+  subs:["Bell peppers and green beans join happily.","Crumbled feta on top for the last 10 minutes, if dairy suits the table.","Out of fresh tomatoes? Double the crushed tomatoes."],
+  serve:"Warm or room temperature with bread for the pan juices — the juices are non-negotiable.",
+  tags:[], motifs:["tomato","potato","herb","lemon"] },
+
+/* ---------------- LEVANTINE & MIDDLE EASTERN ---------------- */
+{ c:"levantine", name:"Mujadara (Lentils & Rice with Crispy Onions)", type:"Traditional Dish", conf:"Strong Heritage Match",
+  insp:"Inspired by mujadara, the lentils-and-rice dish beloved across Lebanon, Syria, Palestine, and the wider Levant.",
+  why:"Mujadara is one of the oldest comfort dishes of the Levant — lentils and rice crowned with onions fried to a deep mahogany sweetness.",
+  story:"Families with roots like yours may have encountered mujadara as the dish that asked for nothing and gave everything — pantry staples turned celebratory by onions cooked past golden into something close to candy. It fed households in lean weeks and proud ones, and never once tasted like a compromise.",
+  ing:["1 cup brown or green lentils, rinsed","¾ cup long-grain rice, rinsed","3 large onions, halved and thinly sliced","½ cup olive oil","1 teaspoon ground cumin","½ teaspoon allspice","3½ cups water","1¼ teaspoons salt","Black pepper","To serve: plain yogurt or plant yogurt, chopped cucumber and tomato"],
+  steps:["Simmer the lentils in the water 12 minutes — tender outside, slightly firm within.","Meanwhile, fry the onions in the olive oil over medium heat, stirring often, 20–25 minutes, until deep brown and crisping. Salt them lightly; set a third aside for the top.","Add the rice, cumin, allspice, and salt to the lentils with two-thirds of the onions and their oil.","Cover tightly and cook on lowest heat 18 minutes.","Rest 10 minutes off heat, then fluff gently.","Crown with the reserved crispy onions and plenty of black pepper."],
+  subs:["Bulgur instead of rice is the older version, when gluten suits the table.","Cracked black lentils or whatever the jar holds — mujadara forgives.","The onions can go sweeter and darker than feels safe; trust the tradition."],
+  serve:"With cool yogurt and a sharp chopped salad — the temperature contrast is the whole experience.",
+  tags:[], motifs:["onion","grain","bean","bowl"] },
+
+{ c:"levantine", name:"Maghmour (Smoky Eggplant & Chickpea Stew)", type:"Traditional Dish", conf:"Strong Heritage Match",
+  insp:"Inspired by maghmour, Lebanon's beloved eggplant and chickpea stew, sometimes called Lebanese moussaka.",
+  why:"Maghmour represents the Levantine genius for vegetables: eggplant and chickpeas stewed with tomato and warm spice until rich enough to anchor a table.",
+  story:"This recipe is inspired by foodways connected to Beirut and the mountains beyond, where maghmour simmered for fasting days and family lunches alike. Families with roots like yours may have encountered it at room temperature with flatbread — proof that a dish without meat can still arrive like a main event.",
+  ing:["1 large eggplant, in 1-inch cubes","4 tablespoons olive oil, divided","1 onion, diced","4 cloves garlic, sliced","1 teaspoon ground cumin","½ teaspoon cinnamon","1 (15 oz) can chickpeas, drained","1 (14 oz) can crushed tomatoes","¾ cup water","1 teaspoon dried mint","Salt and black pepper"],
+  steps:["Salt the eggplant and rest 20 minutes; pat dry.","Brown the eggplant in 3 tablespoons of olive oil until golden; set aside.","Soften the onion in the last tablespoon of oil, 5 minutes; add garlic, cumin, and cinnamon for 1 minute.","Add chickpeas, tomatoes, water, and the eggplant. Simmer gently 25 minutes, until thick and glossy.","Stir in the dried mint and season well.","Rest at least 10 minutes — like much of the Levant's best food, it improves as it cools."],
+  subs:["Zucchini can stand in for half the eggplant.","Fresh mint at the end instead of dried changes the register beautifully.","A drizzle of pomegranate molasses, if the pantry has it, is a quiet masterstroke."],
+  serve:"Warm or room temperature with flatbread, rice, or both, and olive oil over the top.",
+  tags:[], motifs:["tomato","bean","herb","pot"] },
+
+/* ---------------- BRITISH ISLES ---------------- */
+{ c:"british", name:"Garden Cottage Pie with Herb Mash", type:"Historically Inspired Dish", conf:"Plausible Regional Match",
+  insp:"Inspired by the cottage and shepherd's pie tradition of British and Irish farmhouse cooking.",
+  why:"The potato-topped pie is a cornerstone of British Isles home cooking — thrifty, warming, and built to make a little filling feed a full table.",
+  story:"Families with roots like yours may have encountered a pie like this on washing-day evenings — yesterday's vegetables and gravy tucked under a roof of mashed potato, browned until the edges caught. It is inspired by kitchens where nothing was wasted and supper still managed to feel like a small ceremony.",
+  ing:["For the filling: 2 tablespoons oil","1 onion, diced","2 carrots, diced","1 cup brown lentils, rinsed","2 tablespoons tomato paste","2 teaspoons fresh thyme (or 1 dried)","2½ cups vegetable broth","1 tablespoon mustard","1 cup frozen peas","For the mash: 2 pounds potatoes, peeled","3 tablespoons butter","Splash of milk","Salt and pepper"],
+  steps:["Soften the onion and carrots in oil, 6 minutes. Add lentils, tomato paste, and thyme; stir 2 minutes.","Add broth and simmer 25 minutes, until the lentils are tender and the gravy thick. Stir in mustard and peas. Season well.","Meanwhile, boil the potatoes until tender; mash with butter, milk, salt, and pepper.","Heat the oven to 400°F (200°C). Spoon the filling into a baking dish.","Top with the mash, rough up the surface with a fork — the peaks are the prize.","Bake 25 minutes until golden at the edges."],
+  subs:["Olive oil and oat milk in the mash keep it dairy-free.","Browned ground meat is the classic filling if your table prefers it.","Parsnip mashed with the potato is a fine old touch."],
+  serve:"Straight from the dish with simple buttered greens or peas alongside.",
+  tags:["dairy"], motifs:["potato","herb","spoon","bowl"] },
+
+/* ---------------- SCANDINAVIAN ---------------- */
+{ c:"scandinavian", name:"Dill Potatoes with Quick-Pickled Cucumbers & Rye", type:"Historically Inspired Dish", conf:"Plausible Regional Match",
+  insp:"Inspired by the dill-and-potato heart of Nordic summer tables.",
+  why:"New potatoes with dill, sharp pickled cucumber, and dark rye is the quiet signature of Scandinavian home cooking — simple things treated with respect.",
+  story:"This recipe is inspired by foodways connected to Nordic kitchens where the summer's first potatoes were an event worth marking — boiled gently, rolled in butter and dill, eaten with cucumbers pickled an hour before. Families with roots like yours may have encountered this plate at midsummer tables that stayed bright past ten at night.",
+  ing:["2 pounds small new potatoes, scrubbed","3 tablespoons butter","Big bunch of fresh dill, chopped","Flaky salt","For the cucumbers: 1 cucumber, very thinly sliced","⅓ cup white vinegar","2 tablespoons sugar","¼ cup water","Pinch of salt and white pepper","Dark rye bread, to serve"],
+  steps:["Whisk vinegar, sugar, water, salt, and pepper. Add the cucumber slices and chill at least 30 minutes.","Boil the potatoes in well-salted water until just tender, 15 minutes.","Drain and let them steam dry 2 minutes in the warm pot.","Add the butter and most of the dill; roll the potatoes gently until glossy.","Finish with flaky salt and the rest of the dill.","Serve with the drained cucumbers and slices of rye."],
+  subs:["Olive oil instead of butter keeps it dairy-free.","Chives stand in when dill is scarce (but find dill if you can).","Add gravlax-style or smoked fish alongside if your table enjoys it."],
+  serve:"As a light summer supper with rye bread, or beside any simple fish or grilled main.",
+  tags:["dairy","gluten"], motifs:["potato","herb","bread","lemon"] },
+
+/* ---------------- FRENCH ---------------- */
+{ c:"french", name:"Potage Bonne Femme (Leek & Potato Soup)", type:"Traditional Dish", conf:"Strong Heritage Match",
+  insp:"Inspired by the leek and potato potage of French family kitchens — the 'good wife's soup' that opened a thousand suppers.",
+  why:"Leek and potato potage is foundational French home cooking — the daily soup course that turned two humble vegetables into quiet elegance.",
+  story:"Families with roots like yours may have encountered this soup as the start of nearly every supper — the soup pot as much a part of the kitchen as the table itself. Leeks melted slowly in butter, potatoes giving the spoon something to stand on, and the whole thing finished with a flourish of chives and unhurried conversation.",
+  ing:["3 tablespoons butter or olive oil","4 leeks, white and light green parts, sliced and rinsed well","1 onion, diced","1½ pounds potatoes, peeled and cubed","6 cups vegetable broth","1 bay leaf","Salt and white pepper","Splash of cream or plant cream (optional)","Chives, snipped, to finish"],
+  steps:["Melt the butter in a heavy pot over medium-low. Cook the leeks and onion slowly, without browning, 10 minutes — this gentleness is the recipe.","Add potatoes, broth, and bay leaf. Simmer 20 minutes until tender.","Remove the bay leaf. Blend smooth, or mash for a more rustic potage.","Season carefully with salt and white pepper.","Enrich with a splash of cream if you like.","Serve scattered with chives."],
+  subs:["Olive oil and oat cream keep it dairy-free with honor intact.","Watercress stirred in before blending makes it a potage cressonnière.","Serve it chilled in summer and call it by its fancier name."],
+  serve:"As a first course or a full supper with a baguette and good butter, the French way.",
+  tags:[], motifs:["onion","potato","herb","spoon"] }
+];
+
+/* Universal fallback pool — used when no heritage matched, or when
+   dietary filters rule out everything in a matched branch. */
+window.YRK_FALLBACK = [
+{ c:"any", name:"Hearth Vegetable & Bean Stew", type:"Historically Inspired Dish", conf:"Creative Heritage-Inspired Match",
+  insp:"Inspired by the one-pot stews found at nearly every family hearth in the world.",
+  why:"Nearly every food tradition on earth keeps a slow pot of vegetables and beans at its center — it is the most shared inheritance in cooking.",
+  story:"Whatever map your family's story crosses, there was almost certainly a pot like this on it — vegetables and beans simmered until they agreed with each other, made to stretch, made to welcome. This stew borrows from that universal kitchen: the one where someone always made room for one more bowl.",
+  ing:["3 tablespoons olive oil","1 large onion, chopped","3 cloves garlic, minced","2 carrots, sliced","2 celery stalks, sliced","1 teaspoon smoked paprika","1 teaspoon dried thyme","1 (14 oz) can crushed tomatoes","2 (15 oz) cans white or kidney beans, drained","4 cups vegetable broth","2 big handfuls of greens or cabbage","Salt and black pepper","Lemon, to finish"],
+  steps:["Warm the oil in your largest pot and soften the onion, carrots, and celery, 7–8 minutes.","Add garlic, smoked paprika, and thyme; stir 1 minute.","Add tomatoes, beans, and broth. Simmer, partly covered, 25 minutes.","Mash a ladleful of beans against the pot to thicken the broth.","Stir in the greens for the last 5 minutes.","Season well and brighten with a squeeze of lemon."],
+  subs:["Any bean, any sturdy vegetable — this pot was designed for substitution.","Potatoes or squash make it heartier (add with the broth).","Fresh herbs at the end if the windowsill provides."],
+  serve:"In deep bowls with bread, rice, or flatbread — whichever your family table would reach for.",
+  tags:[], motifs:["pot","bean","leafy","herb"] },
+
+{ c:"any", name:"Golden Rice with Garden Vegetables", type:"Historically Inspired Dish", conf:"Creative Heritage-Inspired Match",
+  insp:"Inspired by the seasoned rice dishes that appear, in some form, in almost every food tradition.",
+  why:"Seasoned rice with vegetables is one of cooking's great common threads — from pilafs to pulaos to jollof to arroz, every heritage keeps a version.",
+  story:"Rice has a way of carrying family stories — measured by handfuls, seasoned by memory, cooked by sound and smell. This golden pot is inspired by that shared tradition: a dish your family may have encountered in one of its many forms, wherever their table stood.",
+  ing:["1½ cups long-grain rice, rinsed","3 tablespoons olive or neutral oil","1 onion, diced","2 cloves garlic, minced","1 teaspoon turmeric","1 teaspoon ground cumin","2 cups mixed vegetables (peas, carrots, peppers, corn)","2¼ cups vegetable broth","1 bay leaf","Salt and pepper","Fresh herbs (parsley, cilantro, or dill), to finish"],
+  steps:["Warm the oil in a lidded pot and soften the onion, 5 minutes.","Add garlic, turmeric, and cumin; stir 1 minute until fragrant and golden.","Add the vegetables and stir 2 minutes, then fold in the rice to coat.","Add broth and the bay leaf; bring to a boil.","Cover tightly and cook on lowest heat 16–18 minutes. Rest 10 minutes off heat.","Remove the bay leaf, fluff gently, and finish with herbs."],
+  subs:["Use whatever vegetables the week left behind.","Swap turmeric and cumin for your family's preferred spice register.","Brown rice works: add ½ cup broth and 20 minutes."],
+  serve:"Family-style in one generous dish, with lemon wedges and a simple salad.",
+  tags:[], motifs:["grain","pepper","herb","bowl"] },
+
+{ c:"any", name:"Skillet Greens & Beans with Toasted Garlic", type:"Historically Inspired Dish", conf:"Creative Heritage-Inspired Match",
+  insp:"Inspired by the greens-and-beans pairings beloved from the Mediterranean to the American South to East Asia.",
+  why:"Greens cooked with beans and garlic appear in nearly every heritage cuisine — a quiet, universal answer to the question of supper.",
+  story:"Somewhere in almost every family's food story is a skillet of greens — cooked down with garlic, stretched with beans, eaten with whatever starch the kitchen kept. This version is inspired by that shared instinct: simple, fast, and somehow always tasting like someone's home.",
+  ing:["4 tablespoons olive oil","6 cloves garlic, thinly sliced","Pinch of chili flakes (optional)","2 bunches greens (chard, kale, collards, or spinach), washed and chopped","1 (15 oz) can white beans or chickpeas, drained","½ cup vegetable broth or water","1 teaspoon lemon juice or vinegar","Salt and black pepper","Bread, rice, or polenta, to serve"],
+  steps:["Warm the oil in a wide skillet over medium. Toast the garlic slowly until pale gold — not brown — about 2 minutes.","Scoop out half the garlic chips and set aside.","Add the chili flakes, then the greens in batches with a pinch of salt, letting each wilt.","Add the beans and broth; simmer 6–8 minutes until the greens are tender and the liquid is mostly gone.","Finish with lemon juice, black pepper, and the reserved garlic chips.","Taste — it should be rich, sharp, and a little addictive."],
+  subs:["Any green and any bean; tougher greens just want a few more minutes.","A spoonful of tomato paste with the garlic deepens the pot.","Top with a fried egg, cheese, or toasted seeds as your table allows."],
+  serve:"Over bread rubbed with garlic, polenta, or rice — anything that will catch the pan juices.",
+  tags:[], motifs:["leafy","bean","lemon","herb"] }
+];
+
+/* =====================================================================
+   HELPERS
+   ===================================================================== */
+const $ = (sel, el=document) => el.querySelector(sel);
+const $$ = (sel, el=document) => [...el.querySelectorAll(sel)];
+const pick = arr => arr[Math.floor(Math.random()*arr.length)];
+const esc = s => String(s??"").replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+function toast(msg){
+  const t = $("#toast");
+  if(!t) return;
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(t._h);
+  t._h = setTimeout(()=>t.classList.remove("show"), 2600);
+}
+
+/* =====================================================================
+   DIETARY RULES
+   ===================================================================== */
+const DIET_EXCLUDES = {
+  vegan:      ["meat","pork","poultry","fish","shellfish","dairy","egg","honey"],
+  vegetarian: ["meat","pork","poultry","fish","shellfish"],
+  halal:      ["pork","alcohol"],
+  kosher:     ["pork","shellfish","meatdairy"],
+  glutenfree: ["gluten"],
+  dairyfree:  ["dairy"],
+  nutallergy: ["nuts","peanut"]
+};
+
+function dishAllowed(dish, diets){
+  for(const d of diets){
+    const ex = DIET_EXCLUDES[d];
+    if(!ex) continue;
+    if(dish.tags.some(t=>ex.includes(t))) return false;
+  }
+  return true;
+}
+
+function dietNotes(diets){
+  const notes = [];
+  if(diets.includes("lowsodium")) notes.push("Low-sodium note: season gently — lean on herbs, citrus, garlic, and spices instead of salt, and taste before adding any.");
+  if(diets.includes("kidfriendly")) notes.push("Kid-friendly note: keep heat mild, leave hot peppers on the side, and let little hands help with the safe steps.");
+  return notes.join(" ");
+}
+
+/* =====================================================================
+   HERITAGE MATCHING
+   ===================================================================== */
+function detectCultures(profile){
+  const text = [
+    profile.region, profile.ethnicity, profile.migration, profile.languages,
+    profile.dna, profile.cities, profile.stories, profile.focus,
+    profile.dishes, profile.ingredients, profile.methods, profile.foodstories,
+    profile.uploadNotes
+  ].join(" ").toLowerCase();
+  const matched = [];
+  for(const [id, c] of Object.entries(CULTURES)){
+    if(c.kw.some(k=>text.includes(k))) matched.push(id);
+  }
+  /* If a focus branch is named, put cultures matching the focus first */
+  if(profile.focus){
+    const f = profile.focus.toLowerCase();
+    matched.sort((a,b)=>{
+      const am = CULTURES[a].kw.some(k=>f.includes(k)) ? -1 : 0;
+      const bm = CULTURES[b].kw.some(k=>f.includes(k)) ? -1 : 0;
+      return am - bm;
+    });
+  }
+  return matched;
+}
+
+/* =====================================================================
+   AI SERVICE — abstraction layer.
+   Replace the bodies of these methods with real API calls later.
+   Both return Promises so swapping in network calls changes nothing
+   upstream.
+   ===================================================================== */
+/* ---- live API configuration (model is enforced server-side too) ---- */
+const AI_CONFIG = { model: "claude-sonnet-4-6" };
+const TYPE_LABELS = ["Traditional Dish","Historically Inspired Dish","Multicultural Fusion Dish"];
+const CONF_LABELS = ["Strong Heritage Match","Plausible Regional Match","Creative Heritage-Inspired Match"];
+const MOTIF_KEYS = ["pot","herb","spoon","tomato","pepper","grain","fish","lemon","onion","leafy","bean","bread","bowl","potato"];
+
+/* =====================================================================
+   BACKEND CLIENT
+   All AI calls go to the owner's Cloudflare Worker (see worker.js +
+   README-deploy.md). API keys live as Worker secrets — never in the
+   browser. When the backend is unreachable (e.g. this file opened
+   locally), the app falls back to the built-in recipe box and SVG art.
+   ===================================================================== */
+const BACKEND = {
+  /* Opening index.html as a local file? Paste your deployed worker URL
+     here (e.g. "https://your-roots-kitchen.you.workers.dev") to use
+     live AI anyway. When the app is served BY the worker, leave empty. */
+  WORKER_URL: "",
+
+  recipes:false, images:false, paywall:false, paymentLink:"", freePerDay:3,
+  base(){
+    return (location.protocol === "file:" ? this.WORKER_URL : "").replace(/\/$/,"");
+  },
+  async check(){
+    try{
+      const res = await fetch(this.base() + "/api/health");
+      if(!res.ok) throw new Error("health " + res.status);
+      const h = await res.json();
+      this.recipes = !!h.anthropic;
+      this.images = !!h.openai;
+      this.paywall = !!h.paywall;
+      this.paymentLink = h.paymentLink || "";
+      this.freePerDay = h.freePerDay || 3;
+    }catch(_){
+      this.recipes = false; this.images = false; this.paywall = false;
+    }
+  }
+};
+
+/* Purchased unlimited pass. Persisted in localStorage deliberately —
+   it's a purchase receipt, not heritage data (which stays session-only). */
+const Pass = {
+  get(){
+    try{
+      const raw = localStorage.getItem("yrk_pass");
+      if(!raw) return "";
+      const {token, exp} = JSON.parse(raw);
+      if(exp && exp < Date.now()){ localStorage.removeItem("yrk_pass"); return ""; }
+      return token || "";
+    }catch(_){ return ""; }
+  },
+  set(token, days){
+    try{ localStorage.setItem("yrk_pass", JSON.stringify({token, exp: Date.now() + (days||365)*86400000})); }catch(_){}
+  }
+};
+
+/* ---- image generation through the backend (gpt-image-1, dall-e-3 fallback) ---- */
+const ImageService = {
+  async generate(dish){
+    const prompt = dish.imagePrompt || `Old family recipe card-style illustration of ${dish.name}, warm cream paper background, hand-drawn illustrated ingredients, subtle terracotta and deep green accents, vintage cookbook aesthetic, no photorealism.`;
+    try{
+      return await this.call({ model:"gpt-image-1", prompt, size:"1536x1024", quality:"medium", n:1 });
+    }catch(e){
+      /* gpt-image-1 needs a verified org on some accounts — fall back to dall-e-3 */
+      if(/403|404|verif|model|access/i.test(String(e.message))){
+        return await this.call({ model:"dall-e-3", prompt: prompt.slice(0,3900), size:"1792x1024", response_format:"b64_json", n:1 });
+      }
+      throw e;
+    }
+  },
+  async call(body){
+    const res = await fetch(BACKEND.base() + "/api/images", {
+      method:"POST",
+      headers:{ "content-type":"application/json" },
+      body: JSON.stringify(body)
+    });
+    if(!res.ok){
+      const errText = await res.text().catch(()=> "");
+      throw new Error(`Image API ${res.status}: ${errText.slice(0,200)}`);
+    }
+    const data = await res.json();
+    const b64 = data.data && data.data[0] && data.data[0].b64_json;
+    if(!b64) throw new Error("No image data returned");
+    return "data:image/png;base64," + b64;
+  }
+};
+
+/* Recipe/parsing calls, proxied through the backend to Anthropic.
+   opts.dish marks metered dish generations for the paywall. */
+async function callClaude(content, system, maxTokens, opts={}){
+  const headers = { "content-type":"application/json" };
+  if(opts.dish) headers["x-yrk-dish"] = "1";
+  const pass = Pass.get();
+  if(pass) headers["x-yrk-pass"] = pass;
+
+  const res = await fetch(BACKEND.base() + "/api/anthropic", {
+    method:"POST", headers,
+    body: JSON.stringify({
+      model: AI_CONFIG.model,
+      max_tokens: maxTokens || 3000,
+      system: system || "",
+      messages:[{ role:"user", content }]
+    })
+  });
+  if(res.status === 402){
+    const info = await res.json().catch(()=> ({}));
+    const err = new Error("quota_exceeded");
+    err.quota = true;
+    err.paymentLink = info.paymentLink || BACKEND.paymentLink;
+    err.freePerDay = info.freePerDay || BACKEND.freePerDay;
+    throw err;
+  }
+  if(!res.ok){
+    const errText = await res.text().catch(()=> "");
+    throw new Error(`API ${res.status}: ${errText.slice(0,200)}`);
+  }
+  const data = await res.json();
+  return (data.content || []).filter(b=>b.type==="text").map(b=>b.text).join("\n");
+}
+
+/* Pull the first JSON object out of a model reply (tolerates code fences/prose). */
+function extractJSON(text){
+  const fenced = text.match(/```(?:json)?\s*([\s\S]*?)```/);
+  const candidate = fenced ? fenced[1] : text;
+  const start = candidate.indexOf("{");
+  const end = candidate.lastIndexOf("}");
+  if(start === -1 || end === -1) throw new Error("No JSON in reply");
+  return JSON.parse(candidate.slice(start, end+1));
+}
+
+/* Validate + normalize a live-generated dish; throws if unusable. */
+function validateLiveDish(o){
+  const str = v => typeof v === "string" && v.trim().length > 0;
+  const arr = v => Array.isArray(v) && v.length > 0 && v.every(str);
+  if(!str(o.name) || !str(o.inspiration) || !str(o.why) || !str(o.story) || !str(o.serving)) throw new Error("Missing text fields");
+  if(!arr(o.ingredients) || !arr(o.steps) || !arr(o.substitutions)) throw new Error("Missing list fields");
+  if(!TYPE_LABELS.includes(o.type)) o.type = "Historically Inspired Dish";
+  if(!CONF_LABELS.includes(o.confidence)) o.confidence = "Creative Heritage-Inspired Match";
+  const motifs = Array.isArray(o.motifs) ? o.motifs.filter(m=>MOTIF_KEYS.includes(m)) : [];
+  return {
+    name:o.name.trim(), type:o.type, conf:o.confidence,
+    branch: str(o.branch) ? o.branch.trim() : "Your heritage profile",
+    inspiration:o.inspiration.trim(), why:o.why.trim(), story:o.story.trim(),
+    ingredients:o.ingredients, steps:o.steps, subs:o.substitutions,
+    serving:o.serving.trim(),
+    motifs: motifs.length ? motifs : ["pot","herb","spoon"],
+    imagePrompt: str(o.imagePrompt) ? o.imagePrompt.trim() : ""
+  };
+}
+
+function fileToBase64(file){
+  return new Promise((resolve, reject)=>{
+    const r = new FileReader();
+    r.onload = () => resolve(String(r.result).split(",")[1]);
+    r.onerror = reject;
+    r.readAsDataURL(file);
+  });
+}
+
+const MEDIA_TYPES = { png:"image/png", jpg:"image/jpeg", jpeg:"image/jpeg", pdf:"application/pdf" };
+
+const AIService = {
+
+  /* ---- file parsing: live AI when a key is connected, local extraction otherwise. ---- */
+  async parseFile(file){
+    const ext = file.name.split(".").pop().toLowerCase();
+    const textTypes = ["txt","md","csv"];
+
+    if(BACKEND.recipes){
+      try{
+        let content;
+        if(textTypes.includes(ext)){
+          const text = await file.text();
+          content = `${PROMPTS.parseFile}\n\nKeep the summary under 120 words, plain prose, no headings.\n\nFile "${file.name}" contents:\n\n${text.slice(0, 20000)}`;
+        } else if(MEDIA_TYPES[ext]){
+          const data = await fileToBase64(file);
+          const block = ext === "pdf"
+            ? { type:"document", source:{ type:"base64", media_type:"application/pdf", data } }
+            : { type:"image", source:{ type:"base64", media_type:MEDIA_TYPES[ext], data } };
+          content = [ block, { type:"text", text:`${PROMPTS.parseFile}\n\nKeep the summary under 120 words, plain prose, no headings. The file is named "${file.name}".` } ];
+        }
+        if(content){
+          const summary = await callClaude(content, "You extract heritage and food details for a recipe app. Be factual about what is visible; mark anything unclear as uncertain.", 600);
+          return { ok:true, certain:true, summary: summary.trim() };
+        }
+      }catch(e){
+        console.warn("Live parse failed, falling back:", e);
+      }
+    }
+
+    /* offline / fallback path */
+    if(textTypes.includes(ext)){
+      const text = await file.text();
+      return { ok:true, certain:true, summary: extractFromText(text, file.name) };
+    }
+    return {
+      ok:true, certain:false,
+      summary: `Uploaded "${file.name}" — contents couldn't be read in offline mode, so any details inside are marked uncertain. Add the key facts (regions, surnames, dishes) to the fields above and they'll be woven in.`
+    };
+  },
+
+  /* ---- dish generation: live AI when a key is connected, mock generator otherwise. ---- */
+  async generateDish(profile){
+    if(BACKEND.recipes){
+      try{
+        const dish = await this.generateLive(profile);
+        dish.source = "live";
+        return dish;
+      }catch(e){
+        if(e.quota) throw e; /* paywall — let the UI handle it */
+        console.warn("Live generation failed, falling back to recipe box:", e);
+        toast("Live AI was unavailable — served from the recipe box instead.");
+      }
+    } else {
+      await wait(900 + Math.random()*900); // simulate thinking for the mock path
+    }
+    const dish = MockGenerator.generate(profile);
+    dish.source = "mock";
+    return dish;
+  },
+
+  async generateLive(profile){
+    const diets = profile.diets || [];
+    const avoid = MockGenerator.lastDishName ? `\nDo not generate a dish named "${MockGenerator.lastDishName}" — the user just received it.` : "";
+    const userPrompt =
+`${PROMPTS.generateDish}
+
+User's food heritage profile (JSON):
+${JSON.stringify({
+  heritageRegions: profile.region, ethnicity: profile.ethnicity, surnames: profile.surnames,
+  migration: profile.migration, languages: profile.languages, dnaPercentages: profile.dna,
+  citiesOrVillages: profile.cities, familyStories: profile.stories, focusBranch: profile.focus,
+  knownFamilyDishes: profile.dishes, childhoodIngredients: profile.ingredients,
+  familyCookingMethods: profile.methods, foodMemories: profile.foodstories,
+  uploadedFileNotes: profile.uploadNotes, dietaryPreferences: diets, skillLevel: profile.skill
+}, null, 1)}
+
+Dietary preferences are hard requirements — honor every one.${avoid}
+
+Return ONLY a JSON object, no prose, with exactly these keys:
+{
+ "name": string,
+ "type": one of ${JSON.stringify(TYPE_LABELS)},
+ "confidence": one of ${JSON.stringify(CONF_LABELS)},
+ "branch": short label of the heritage influence used (e.g. "West African" or "Italian × Irish"),
+ "inspiration": one warm sentence on the heritage inspiration,
+ "why": 2-3 sentences referencing the user's actual profile details, using "may have encountered" framing,
+ "story": 3-4 sentence immersive food story in the voice of an old family cookbook note,
+ "ingredients": array of strings with measurements,
+ "steps": array of numbered-ready instruction strings,
+ "substitutions": array of 2-4 strings,
+ "serving": one or two sentences,
+ "imagePrompt": old family recipe card-style illustration prompt,
+ "motifs": 3-4 strings chosen ONLY from ${JSON.stringify(MOTIF_KEYS)} that best represent the dish's ingredients
+}`;
+    const reply = await callClaude(userPrompt, "You write culturally respectful heritage-inspired recipes and return strictly valid JSON.", 3000, {dish:true});
+    const dish = validateLiveDish(extractJSON(reply));
+    if(!dish.imagePrompt){
+      dish.imagePrompt = `Old family recipe card-style illustration of ${dish.name}, inspired by ${dish.branch} foodways, warm cream paper background, hand-drawn illustrated ingredients, subtle terracotta and deep green accents, vintage cookbook aesthetic, family scrapbook style, gentle shadows, tasteful composition, culturally respectful, no photorealism, no modern restaurant styling.`;
+    }
+    dish.dietNote = dietNotes(diets);
+    dish.skillNote = MockGenerator.skillNote(profile.skill);
+    MockGenerator.lastDishName = dish.name;
+    return dish;
+  }
+};
+
+function wait(ms){ return new Promise(r=>setTimeout(r,ms)); }
+
+/* Lightweight visible-text extraction for TXT uploads (mock parser). */
+function extractFromText(text, name){
+  const found = [];
+  const lower = text.toLowerCase();
+  for(const c of Object.values(CULTURES)){
+    const hit = c.kw.find(k=>lower.includes(k));
+    if(hit) found.push(c.label);
+  }
+  const dna = text.match(/\d{1,3}(?:\.\d+)?\s*%\s*[A-Za-z][A-Za-z &\-]+/g) || [];
+  const lines = [];
+  if(found.length) lines.push("Heritage clues: " + [...new Set(found)].join(", ") + ".");
+  if(dna.length) lines.push("DNA mentions: " + dna.slice(0,6).join("; ") + ".");
+  const foodWords = ["recipe","stew","bread","rice","soup","pie","greens","dumpling","cake","roast","beans","sauce","spice"];
+  const foodHits = foodWords.filter(w=>lower.includes(w));
+  if(foodHits.length) lines.push("Food mentions: " + foodHits.join(", ") + ".");
+  if(!lines.length) return `Read "${name}" but no clear ancestry or food details were found — anything important may be worded unusually, so it's marked uncertain. Feel free to add details manually.`;
+  return `From "${name}": ` + lines.join(" ");
+}
+
+/* =====================================================================
+   MOCK GENERATOR
+   ===================================================================== */
+const MockGenerator = {
+  lastDishName: null,
+
+  generate(profile){
+    const diets = profile.diets || [];
+    const matched = detectCultures(profile);
+    let dish = null, branchLabel = null, fallbackUsed = false;
+
+    /* fusion chance when 2+ branches matched */
+    if(matched.length >= 2 && Math.random() < 0.34){
+      dish = this.buildFusion(matched, diets, profile);
+      branchLabel = dish && dish.branch;
+    }
+
+    if(!dish && matched.length){
+      /* try matched branches in random-ish order, honoring focus ordering */
+      const order = [...matched];
+      if(Math.random() < 0.6) order.sort(()=>Math.random()-0.5);
+      for(const id of order){
+        const pool = window.YRK_DISHES.filter(d => d.c === id && dishAllowed(d, diets) && d.name !== this.lastDishName);
+        if(pool.length){ dish = {...pick(pool)}; branchLabel = CULTURES[id].label; break; }
+      }
+    }
+
+    if(!dish){
+      const pool = window.YRK_FALLBACK.filter(d => dishAllowed(d, diets) && d.name !== this.lastDishName);
+      const all = pool.length ? pool : window.YRK_FALLBACK;
+      dish = {...pick(all)};
+      branchLabel = matched.length ? CULTURES[matched[0]].label : "Your family table";
+      fallbackUsed = true;
+      dish.conf = "Creative Heritage-Inspired Match";
+    }
+
+    this.lastDishName = dish.name;
+    return this.finishDish(dish, branchLabel, profile, diets, fallbackUsed);
+  },
+
+  finishDish(dish, branchLabel, profile, diets, fallbackUsed){
+    const why = this.personalWhy(dish, branchLabel, profile, fallbackUsed);
+    const imgPrompt = `Old family recipe card-style illustration of ${dish.name}, inspired by ${branchLabel} foodways, warm cream paper background, hand-drawn illustrated ingredients, subtle terracotta and deep green accents, vintage cookbook aesthetic, family scrapbook style, gentle shadows, tasteful composition, culturally respectful, no photorealism, no modern restaurant styling.`;
+    return {
+      name: dish.name,
+      type: dish.type,
+      conf: dish.conf,
+      branch: branchLabel,
+      inspiration: dish.insp,
+      why,
+      story: dish.story,
+      ingredients: dish.ing,
+      steps: dish.steps,
+      subs: dish.subs,
+      serving: dish.serve,
+      motifs: dish.motifs || ["pot","herb","spoon"],
+      imagePrompt: imgPrompt,
+      dietNote: dietNotes(diets),
+      skillNote: this.skillNote(profile.skill)
+    };
+  },
+
+  personalWhy(dish, branchLabel, profile, fallbackUsed){
+    const bits = [];
+    if(profile.region) bits.push(`you mentioned roots around ${profile.region.trim()}`);
+    if(profile.ethnicity) bits.push(`a ${profile.ethnicity.trim()} background`);
+    if(profile.dishes) bits.push(`family dishes like ${profile.dishes.trim()}`);
+    if(profile.ingredients) bits.push(`childhood ingredients such as ${profile.ingredients.trim()}`);
+    const mention = bits.length ? `Because ${bits.slice(0,2).join(" and ")}, ` : "";
+    if(fallbackUsed){
+      return `${mention}this recipe takes a creative, heritage-inspired path. ${dish.why} It isn't tied to a single documented tradition in your profile — think of it as a respectful idea drawn from the spirit of family cooking.`;
+    }
+    return `${mention}this dish connects naturally to ${branchLabel} foodways. ${dish.why} Families with roots like yours may have encountered dishes like this — not as proof of your exact family history, but as a plausible thread in it.`;
+  },
+
+  skillNote(skill){
+    if(skill === "Beginner") return "Beginner pace: read every step before you start, prep all ingredients first, and don't rush the simmer — the pot is patient.";
+    if(skill === "Advanced") return "Advanced touch: feel free to toast whole spices, build a deeper fond, or adjust seasoning layers by taste as you go.";
+    return "Take it step by step — this recipe is forgiving, and tasting as you go is part of the tradition.";
+  },
+
+  /* ---------- procedural fusion ---------- */
+  buildFusion(matched, diets, profile){
+    const ids = [...matched].sort(()=>Math.random()-0.5).slice(0,2);
+    const A = CULTURES[ids[0]], B = CULTURES[ids[1]];
+    const tmpl = pick(FUSION_TEMPLATES);
+    const d = tmpl(A, B);
+    if(!dishAllowed(d, diets)) return null;
+    d.branch = `${A.label} × ${B.label}`;
+    return d;
+  }
+};
+
+/* Fusion templates: vegetable-forward so they pass most dietary filters. */
+const FUSION_TEMPLATES = [
+  (A,B)=>({
+    name:`Two-Kitchens Heritage Grain Bowl`,
+    type:"Multicultural Fusion Dish",
+    conf:"Creative Heritage-Inspired Match",
+    insp:`A meeting of ${A.label} and ${B.label} pantries in one bowl.`,
+    why:`It pairs staples and seasonings from two branches of your profile, the way migrating families have always blended what they carried with what they found.`,
+    story:`When two family lines share one stove, supper becomes a conversation. This bowl imagines that conversation — ${A.label} warmth on one side, ${B.label} brightness on the other, meeting over a pot of grains the way kitchens have always made room for everyone at the table.`,
+    ing:[
+      "1½ cups rice, bulgur, or another favorite grain (use rice for gluten-free)",
+      `Seasoning from the first kitchen: ${A.pantry[3] || A.pantry[0]}`,
+      `Vegetables from both kitchens: 3 cups total, e.g. ${A.pantry[1] || A.pantry[0]} and ${B.pantry[1] || B.pantry[0]}`,
+      "1 (15 oz) can chickpeas or white beans, drained",
+      "2 tablespoons olive or neutral oil",
+      "1 small onion, diced",
+      "2 cloves garlic, minced",
+      `A finishing touch from the second kitchen: ${B.pantry[4] || B.pantry[2]}`,
+      "Salt and pepper, to taste (gently if low-sodium)"
+    ],
+    steps:[
+      "Cook the grain according to package directions; keep warm.",
+      "Warm the oil in a wide skillet over medium heat. Soften the onion 4–5 minutes, then add garlic for 1 minute more.",
+      "Add the vegetables and a splash of water; cook until tender, 6–8 minutes.",
+      "Stir in the beans and the first kitchen's seasoning; warm through 3–4 minutes.",
+      "Pile the vegetables over the grains and finish with the second kitchen's touch.",
+      "Taste, adjust, and serve warm."
+    ],
+    subs:[
+      "Any sturdy vegetable you have works — this dish was built for substitution.",
+      "Lentils can stand in for chickpeas.",
+      "No fresh herbs? Use half the amount dried."
+    ],
+    serve:"Serve family-style in one big bowl with serving spoons — a fitting way to honor two traditions at once.",
+    tags:[],
+    motifs:["grain","herb","pepper","bowl"]
+  }),
+  (A,B)=>({
+    name:`Crossing-Table Vegetable Stew`,
+    type:"Multicultural Fusion Dish",
+    conf:"Creative Heritage-Inspired Match",
+    insp:`A slow, gentle stew that lets ${A.label} and ${B.label} flavors share the pot.`,
+    why:`Stews travel well across cultures — nearly every branch of your profile has a beloved one-pot tradition, so blending two is a natural, respectful experiment.`,
+    story:`Every family has a stew story: the pot that stretched to feed whoever knocked. This one borrows its backbone from ${A.label} cooking and its brightness from ${B.label} tables — a supper for families whose story spans more than one map.`,
+    ing:[
+      "2 tablespoons olive or neutral oil",
+      "1 large onion, chopped",
+      "3 cloves garlic, minced",
+      `Aromatics from the first kitchen: ${A.pantry[3] || A.pantry[2]}`,
+      "1 (14 oz) can crushed tomatoes",
+      `3 cups chopped vegetables, drawing on both pantries (e.g. ${A.pantry[1] || A.pantry[0]}; ${B.pantry[1] || B.pantry[0]})`,
+      "1 (15 oz) can beans of choice, drained",
+      "3 cups vegetable broth (low-sodium if preferred)",
+      `To finish: ${B.pantry[4] || B.pantry[3] || B.pantry[0]}`
+    ],
+    steps:[
+      "Heat the oil in a heavy pot over medium. Cook the onion until golden at the edges, about 6 minutes.",
+      "Add garlic and the first kitchen's aromatics; stir 1 minute until fragrant.",
+      "Add tomatoes, vegetables, beans, and broth. Bring to a simmer.",
+      "Partially cover and simmer gently 25–30 minutes, until the vegetables are tender and the broth has body.",
+      "Stir in the finishing touch, taste, and adjust.",
+      "Rest 5 minutes off the heat before serving — stews like a moment to settle."
+    ],
+    subs:[
+      "Use frozen vegetables freely; they were made for pots like this.",
+      "Swap beans for lentils (add 10 minutes simmering).",
+      "Any broth you have works."
+    ],
+    serve:"Ladle into deep bowls with bread, rice, or flatbread on the side — whichever your family table would reach for.",
+    tags:[],
+    motifs:["pot","herb","tomato","spoon"]
+  })
+];
+
+/* =====================================================================
+   RECIPE CARD ILLUSTRATION (procedural SVG, vintage recipe-card style)
+   ===================================================================== */
+const MOTIF_DRAWERS = {
+  pot:(x,y,s)=>`<g transform="translate(${x},${y}) scale(${s})"><path d="M5 14h34v8c0 9-7.6 15-17 15S5 31 5 22v-8z" fill="#2e5339"/><rect x="1" y="11" width="42" height="5" rx="2.5" fill="#c4602f"/><path d="M14 8c0-2.5 2.5-2.5 2.5-5M22 8c0-2.5 2.5-2.5 2.5-5M30 8c0-2.5 2.5-2.5 2.5-5" stroke="#c2a14d" stroke-width="2" stroke-linecap="round" fill="none"/></g>`,
+  herb:(x,y,s)=>`<g transform="translate(${x},${y}) scale(${s})"><path d="M20 40V8" stroke="#2e5339" stroke-width="2" stroke-linecap="round"/><path d="M20 12c-7-1-10-6-10-10 6 0 10 4 10 10zM20 12c7-1 10-6 10-10-6 0-10 4-10 10zM20 22c-7-1-11-5-11-9 6 0 11 3 11 9zM20 22c7-1 11-5 11-9-6 0-11 3-11 9zM20 32c-6-1-10-4-10-8 5 0 10 2 10 8zM20 32c6-1 10-4 10-8-5 0-10 2-10 8z" fill="#3f7050"/></g>`,
+  spoon:(x,y,s)=>`<g transform="translate(${x},${y}) scale(${s})"><ellipse cx="20" cy="9" rx="9" ry="11" fill="#a9824f"/><ellipse cx="20" cy="8" rx="5.5" ry="7" fill="#c9a86e"/><rect x="17.5" y="18" width="5" height="26" rx="2.5" fill="#a9824f"/></g>`,
+  tomato:(x,y,s)=>`<g transform="translate(${x},${y}) scale(${s})"><circle cx="20" cy="24" r="14" fill="#c4602f"/><circle cx="15" cy="20" r="4" fill="#d9854f" opacity=".7"/><path d="M20 10c-2-3-6-3-8-2 2 3 5 4 8 4 3 0 6-1 8-4-2-1-6-1-8 2z" fill="#3f7050"/><path d="M20 11v-5" stroke="#3f7050" stroke-width="2" stroke-linecap="round"/></g>`,
+  pepper:(x,y,s)=>`<g transform="translate(${x},${y}) scale(${s})"><path d="M14 12c-6 4-9 14-4 22 4 7 14 9 20 4 7-6 8-17 3-23-2 5-5 7-9 7 1-4 0-8-3-10-2-1-5-1-7 0z" fill="#b54a26"/><path d="M18 11c0-4 3-6 7-6-1 4-3 6-7 6z" fill="#3f7050"/></g>`,
+  grain:(x,y,s)=>`<g transform="translate(${x},${y}) scale(${s})"><path d="M20 44V14" stroke="#a9824f" stroke-width="2" stroke-linecap="round"/><g fill="#c2a14d">${[0,1,2,3].map(i=>`<ellipse cx="14" cy="${12+i*7}" rx="5" ry="3.4" transform="rotate(-28 14 ${12+i*7})"/><ellipse cx="26" cy="${12+i*7}" rx="5" ry="3.4" transform="rotate(28 26 ${12+i*7})"/>`).join("")}</g><ellipse cx="20" cy="7" rx="3.4" ry="5" fill="#c2a14d"/></g>`,
+  fish:(x,y,s)=>`<g transform="translate(${x},${y}) scale(${s})"><path d="M4 22c8-10 24-10 32 0-8 10-24 10-32 0z" fill="#5b7d8c"/><path d="M36 22l8-7v14l-8-7z" fill="#5b7d8c"/><circle cx="12" cy="20" r="2" fill="#f7f1e3"/><path d="M18 16c4 3 4 9 0 12" stroke="#46626e" stroke-width="1.6" fill="none"/></g>`,
+  lemon:(x,y,s)=>`<g transform="translate(${x},${y}) scale(${s})"><ellipse cx="22" cy="24" rx="16" ry="11" fill="#d9b53f" transform="rotate(-18 22 24)"/><circle cx="22" cy="24" r="7.5" fill="#f0dc8a"/><g stroke="#d9b53f" stroke-width="1.5">${[0,45,90,135,180,225,270,315].map(a=>`<line x1="22" y1="24" x2="${22+7*Math.cos(a*Math.PI/180)}" y2="${24+7*Math.sin(a*Math.PI/180)}"/>`).join("")}</g></g>`,
+  onion:(x,y,s)=>`<g transform="translate(${x},${y}) scale(${s})"><path d="M20 12c-8 3-13 9-13 16 0 8 6 13 13 13s13-5 13-13c0-7-5-13-13-16z" fill="#b58ab0"/><path d="M20 12c-3 5-4 12-4 16 0 6 1 10 4 13 3-3 4-7 4-13 0-4-1-11-4-16z" fill="#d3b3cf"/><path d="M20 12V5M16 12l-3-5M24 12l3-5" stroke="#7a9b6d" stroke-width="2" stroke-linecap="round"/></g>`,
+  leafy:(x,y,s)=>`<g transform="translate(${x},${y}) scale(${s})"><path d="M22 42C10 38 4 28 6 14c10-2 22 2 26 12 3 8 -2 14-10 16z" fill="#3f7050"/><path d="M10 16c8 6 14 14 16 24" stroke="#2e5339" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M12 24c5 0 9 2 12 6M10 18c4-1 8-1 12 1" stroke="#2e5339" stroke-width="1.6" fill="none" stroke-linecap="round"/></g>`,
+  bean:(x,y,s)=>`<g transform="translate(${x},${y}) scale(${s})"><path d="M10 14c8-6 20-4 24 4 3 7-1 16-9 19-6 2-12 0-14-4 5 1 10-1 12-5 2-5-1-9-6-10-4-1-7-2-7-4z" fill="#8a5a3b"/><ellipse cx="24" cy="22" rx="4" ry="3" fill="#a9764f"/></g>`,
+  bread:(x,y,s)=>`<g transform="translate(${x},${y}) scale(${s})"><path d="M6 26c0-9 7-15 16-15s16 6 16 15c0 3-2 5-5 5H11c-3 0-5-2-5-5z" fill="#c9a86e"/><path d="M14 16l4 8M22 14l2 9M30 16l-4 8" stroke="#a9824f" stroke-width="2" stroke-linecap="round"/></g>`,
+  bowl:(x,y,s)=>`<g transform="translate(${x},${y}) scale(${s})"><path d="M4 18h36c0 11-8 18-18 18S4 29 4 18z" fill="#c4602f"/><path d="M4 18h36" stroke="#8a4520" stroke-width="2"/><path d="M12 14c3-3 8-4 12-2M24 13c3-2 7-2 9 0" stroke="#c2a14d" stroke-width="2" fill="none" stroke-linecap="round"/></g>`,
+  potato:(x,y,s)=>`<g transform="translate(${x},${y}) scale(${s})"><ellipse cx="22" cy="24" rx="16" ry="12" fill="#c9a86e" transform="rotate(-12 22 24)"/><circle cx="15" cy="21" r="1.6" fill="#a9824f"/><circle cx="26" cy="18" r="1.6" fill="#a9824f"/><circle cx="24" cy="29" r="1.6" fill="#a9824f"/></g>`
+};
+
+function illustrationSVG(dish, w){
+  const width = w || 760, height = Math.round(width*0.46);
+  const motifs = dish.motifs.length ? dish.motifs : ["pot","herb","spoon"];
+  const placed = [];
+  const n = Math.min(motifs.length, 4);
+  for(let i=0;i<n;i++){
+    const mx = width*0.16 + (width*0.68)*(i/(Math.max(n-1,1))) - 30 + (i%2)*14;
+    const my = height*0.42 + (i%2===0 ? -14 : 26);
+    const sc = 1.25 + (i%2)*0.35;
+    const drawer = MOTIF_DRAWERS[motifs[i]] || MOTIF_DRAWERS.herb;
+    placed.push(drawer(mx, my, sc));
+  }
+  const initial = esc((dish.name||"R").charAt(0));
+  return `<svg viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Vintage recipe card illustration for ${esc(dish.name)}">
+  <defs>
+    <pattern id="paperdots" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="0.9" fill="#7a6347" opacity="0.07"/>
+      <circle cx="13" cy="13" r="0.9" fill="#c2a14d" opacity="0.09"/>
+    </pattern>
+  </defs>
+  <rect width="${width}" height="${height}" fill="#fbf6ea"/>
+  <rect width="${width}" height="${height}" fill="url(#paperdots)"/>
+  <rect x="14" y="14" width="${width-28}" height="${height-28}" fill="none" stroke="#c2a14d" stroke-width="1.6" rx="10" opacity="0.75"/>
+  <rect x="22" y="22" width="${width-44}" height="${height-44}" fill="none" stroke="#c2a14d" stroke-width="0.8" rx="7" opacity="0.5"/>
+  <line x1="${width*0.3}" y1="34" x2="${width*0.7}" y2="34" stroke="#c4602f" stroke-width="1.2" opacity="0.55"/>
+  <text x="${width/2}" y="40" text-anchor="middle" font-family="Georgia, serif" font-size="13" letter-spacing="6" fill="#c4602f" opacity="0.85">FROM THE FAMILY RECIPE BOX</text>
+  <circle cx="${width/2}" cy="${height*0.52}" r="${height*0.34}" fill="#f1e8d4" opacity="0.8"/>
+  <circle cx="${width/2}" cy="${height*0.52}" r="${height*0.34}" fill="none" stroke="#d9c48a" stroke-width="1.4" stroke-dasharray="3 6"/>
+  ${placed.join("\n")}
+  <text x="${width/2}" y="${height-30}" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="15" fill="#7a6347" opacity="0.85">❧ a dish your family may have encountered ❧</text>
+  <text x="${width-40}" y="58" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#c2a14d" opacity="0.6">${initial}</text>
+</svg>`;
+}
+
+/* =====================================================================
+   DOWNLOADABLE RECIPE CARD (full SVG -> PNG)
+   ===================================================================== */
+function wrapText(text, maxChars){
+  const words = String(text).split(/\s+/);
+  const lines = []; let line = "";
+  for(const w of words){
+    if((line + " " + w).trim().length > maxChars){ lines.push(line.trim()); line = w; }
+    else line += " " + w;
+  }
+  if(line.trim()) lines.push(line.trim());
+  return lines;
+}
+
+function buildCardSVG(d){
+  const W = 900, M = 60, LH = 26;
+  const lines = []; // {text, font, size, color, style, weight, gap}
+  const add = (text, opts={}) => lines.push({text, ...opts});
+  const addWrapped = (text, maxChars, opts={}) => wrapText(text, maxChars).forEach((t,i)=>add(t, {...opts, gap: i===0 ? (opts.gap||0) : 0}));
+
+  add("FROM THE FAMILY RECIPE BOX", {size:14, color:"#c4602f", spacing:6, align:"middle", gap:6});
+  addWrapped(d.name, 34, {size:38, font:"Georgia, serif", color:"#5a4632", weight:"bold", align:"middle", gap:14});
+  add(`${d.type}  ·  ${d.conf}`, {size:15, color:"#2e5339", align:"middle", style:"italic", gap:10});
+  add(`Inspired by: ${d.branch}`, {size:15, color:"#c4602f", align:"middle", style:"italic", gap:4});
+  add("", {gap:8});
+  addWrapped(d.inspiration, 84, {size:15, color:"#7a6347", style:"italic", gap:8});
+  add("", {gap:6});
+  add("A NOTE FROM THE TABLE", {size:13, color:"#c4602f", spacing:4, gap:12});
+  addWrapped(excerpt(d.story, 300), 84, {size:15, color:"#5a4632", style:"italic", gap:6});
+  add("", {gap:6});
+  add("INGREDIENTS", {size:13, color:"#c4602f", spacing:4, gap:12});
+  d.ingredients.forEach(i=>addWrapped("◆  " + i, 80, {size:15, color:"#3d3226", gap:4}));
+  add("", {gap:6});
+  add("METHOD", {size:13, color:"#c4602f", spacing:4, gap:12});
+  d.steps.forEach((s,i)=>addWrapped(`${i+1}.  ${s}`, 80, {size:15, color:"#3d3226", gap:6}));
+  add("", {gap:6});
+  add("SUBSTITUTIONS", {size:13, color:"#c4602f", spacing:4, gap:12});
+  d.subs.forEach(s=>addWrapped("↪  " + s, 80, {size:15, color:"#3d3226", gap:4}));
+  add("", {gap:6});
+  add("TO SERVE", {size:13, color:"#c4602f", spacing:4, gap:12});
+  addWrapped(d.serving, 84, {size:15, color:"#3d3226", gap:4});
+  add("", {gap:10});
+  addWrapped("Recipes and food histories are culturally inspired suggestions, not proof of what your specific ancestors ate. This app does not provide medical, nutritional, or genealogical advice.", 96, {size:11, color:"#9b8568", style:"italic", gap:8});
+  add("❧ Your Roots Kitchen — Cook from your roots", {size:13, color:"#c2a14d", align:"middle", style:"italic", gap:14});
+
+  const illoH = 320;
+  let y = M + illoH + 40;
+  const textEls = lines.map(l=>{
+    y += (l.gap||0) + (l.text ? Math.max(LH, (l.size||15)+10) : 8);
+    if(!l.text) return "";
+    const x = l.align === "middle" ? W/2 : M;
+    const anchor = l.align === "middle" ? "middle" : "start";
+    return `<text x="${x}" y="${y}" text-anchor="${anchor}" font-family="${l.font||"Georgia, serif"}" font-size="${l.size||15}" fill="${l.color||"#3d3226"}"${l.weight?` font-weight="${l.weight}"`:""}${l.style?` font-style="${l.style}"`:""}${l.spacing?` letter-spacing="${l.spacing}"`:""}>${esc(l.text)}</text>`;
+  }).join("\n");
+  const H = y + 70;
+
+  const illo = d.aiImage
+    ? `<image x="${M}" y="${M}" width="${W-M*2}" height="${illoH}" href="${d.aiImage}" preserveAspectRatio="xMidYMid slice"/>
+       <rect x="${M}" y="${M}" width="${W-M*2}" height="${illoH}" fill="none" stroke="#c2a14d" stroke-width="2" rx="8"/>`
+    : illustrationSVG(d, W - M*2).replace('<svg ', `<svg x="${M}" y="${M}" width="${W-M*2}" height="${illoH}" preserveAspectRatio="xMidYMid slice" `);
+
+  return {svg:`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
+    <rect width="${W}" height="${H}" fill="#f7f1e3"/>
+    <rect x="20" y="20" width="${W-40}" height="${H-40}" fill="#fbf6ea" stroke="#c2a14d" stroke-width="2" rx="16"/>
+    <rect x="30" y="30" width="${W-60}" height="${H-60}" fill="none" stroke="#c2a14d" stroke-width="0.8" rx="10" opacity="0.5"/>
+    ${illo}
+    ${textEls}
+  </svg>`, w:W, h:H};
+}
+
+function excerpt(text, n){
+  if(text.length <= n) return text;
+  return text.slice(0, n).replace(/\s+\S*$/, "") + "…";
+}
+
+/* =====================================================================
+   APP STATE + VIEWS
+   ===================================================================== */
+const PROFILE_FIELDS = [
+  {k:"region",      label:"Heritage regions", sec:"h"},
+  {k:"ethnicity",   label:"Ethnic / cultural background", sec:"h"},
+  {k:"surnames",    label:"Family surnames", sec:"h"},
+  {k:"migration",   label:"Known migration history", sec:"h"},
+  {k:"languages",   label:"Languages", sec:"h"},
+  {k:"dna",         label:"DNA percentages", sec:"h"},
+  {k:"cities",      label:"Cities or villages", sec:"h"},
+  {k:"stories",     label:"Family stories", sec:"h", area:true},
+  {k:"focus",       label:"Heritage branch to focus on (optional)", sec:"h"},
+  {k:"dishes",      label:"Known family dishes", sec:"f"},
+  {k:"ingredients", label:"Ingredients remembered from childhood", sec:"f"},
+  {k:"methods",     label:"Cooking methods used in the family", sec:"f"},
+  {k:"foodstories", label:"Food stories or food memories", sec:"f", area:true},
+  {k:"uploadNotes", label:"Uploaded file notes", sec:"f", area:true},
+  {k:"dietsText",   label:"Dietary preferences", sec:"p"},
+  {k:"skill",       label:"Skill level", sec:"p"}
+];
+
+const App = {
+  profile: null,
+  currentDish: null,
+  files: [],
+
+  go(view){
+    ["home","profile","loading","result"].forEach(v=>{
+      $("#view-"+v).classList.toggle("hidden", v!==view);
+    });
+    window.scrollTo({top:0, behavior:"smooth"});
+  },
+
+  /* ---- collect manual form into profile ---- */
+  collectForm(){
+    const f = $("#heritage-form");
+    const val = id => $("#"+id, f) ? $("#"+id, f).value.trim() : "";
+    const diets = $$('input[name="diet"]:checked', f).map(c=>c.value);
+    return {
+      region: val("f-region"), ethnicity: val("f-ethnicity"), surnames: val("f-surnames"),
+      migration: val("f-migration"), languages: val("f-languages"), dna: val("f-dna"),
+      cities: val("f-cities"), stories: val("f-stories"), focus: val("f-focus"),
+      dishes: val("f-dishes"), ingredients: val("f-ingredients"),
+      methods: val("f-methods"), foodstories: val("f-foodstories"),
+      uploadNotes: this.files.map(x=>x.summary).join("\n"),
+      diets, dietsText: diets.join(", "),
+      skill: $("#f-skill").value
+    };
+  },
+
+  /* ---- render editable profile review ---- */
+  renderProfile(){
+    const p = this.profile;
+    const make = f => {
+      const v = esc(p[f.k] || "");
+      const input = f.k === "skill"
+        ? `<select id="p-${f.k}">${["Beginner","Intermediate","Advanced"].map(s=>`<option${s===p.skill?" selected":""}>${s}</option>`).join("")}</select>`
+        : f.area
+          ? `<textarea id="p-${f.k}" placeholder="—">${v}</textarea>`
+          : `<input type="text" id="p-${f.k}" value="${v}" placeholder="—"/>`;
+      return `<div class="field${f.area?'" style="grid-column:1/-1':''}"><label for="p-${f.k}">${f.label}</label>${input}</div>`;
+    };
+    $("#profile-heritage-fields").innerHTML = PROFILE_FIELDS.filter(f=>f.sec==="h").map(make).join("");
+    $("#profile-food-fields").innerHTML = PROFILE_FIELDS.filter(f=>f.sec==="f").map(make).join("");
+    $("#profile-pref-fields").innerHTML = PROFILE_FIELDS.filter(f=>f.sec==="p").map(make).join("");
+  },
+
+  collectProfileEdits(){
+    for(const f of PROFILE_FIELDS){
+      const el = $("#p-"+f.k);
+      if(el) this.profile[f.k] = el.value.trim();
+    }
+    /* re-derive diet checkboxes from edited text */
+    const t = (this.profile.dietsText||"").toLowerCase();
+    const map = {vegetarian:"vegetarian",vegan:"vegan",halal:"halal",kosher:"kosher","gluten":"glutenfree","dairy":"dairyfree",nut:"nutallergy",sodium:"lowsodium",kid:"kidfriendly"};
+    const diets = new Set(this.profile.diets||[]);
+    for(const [word,key] of Object.entries(map)){
+      if(t.includes(word)) diets.add(key);
+      else if(![...diets].length || !t) {/* keep */}
+    }
+    /* if user cleared the text entirely, clear diets */
+    if(!t.trim()) diets.clear(); else {
+      for(const key of [...diets]){
+        const word = Object.entries(map).find(([w,k])=>k===key);
+        if(word && !t.includes(word[0])) diets.delete(key);
+      }
+    }
+    this.profile.diets = [...diets];
+  },
+
+  /* ---- generation flow ---- */
+  async generate(){
+    this.go("loading");
+    const msgs = [
+      "Looking through the recipe box…",
+      "Asking the aunties…",
+      "Dusting off the family cookbook…",
+      "Setting the table…"
+    ];
+    let i = 0;
+    $("#loading-msg").textContent = msgs[0];
+    const rot = setInterval(()=>{ i=(i+1)%msgs.length; $("#loading-msg").textContent = msgs[i]; }, 1100);
+    try{
+      const dish = await AIService.generateDish(this.profile);
+      this.currentDish = dish;
+      this.renderResult(dish);
+      this.go("result");
+    }catch(err){
+      clearInterval(rot);
+      if(err.quota){
+        this.go("profile");
+        this.showPaywall(err);
+        return;
+      }
+      console.error(err);
+      toast("Something went wrong stirring the pot — please try again.");
+      this.go("profile");
+    }finally{
+      clearInterval(rot);
+    }
+  },
+
+  regenerate(){ this.generate(); },
+
+  /* ---- paywall ---- */
+  showPaywall(info){
+    $("#paywall-msg").textContent =
+      `You've cooked your ${info.freePerDay || BACKEND.freePerDay} free one-of-a-kind dishes for today. Unlock unlimited dishes and painted recipe cards — or keep cooking from the family recipe box, on the house.`;
+    const link = $("#paywall-link");
+    if(info.paymentLink || BACKEND.paymentLink){
+      link.href = info.paymentLink || BACKEND.paymentLink;
+      link.classList.remove("hidden");
+    } else {
+      link.classList.add("hidden");
+    }
+    $("#paywall").classList.remove("hidden");
+  },
+
+  closePaywall(){ $("#paywall").classList.add("hidden"); },
+
+  async paywallMock(){
+    this.closePaywall();
+    this.go("loading");
+    await wait(700);
+    const dish = MockGenerator.generate(this.profile);
+    dish.source = "mock";
+    this.currentDish = dish;
+    this.renderResult(dish);
+    this.go("result");
+  },
+
+  /* ---- Stripe return: ?session_id=cs_… → redeem for an unlimited pass ---- */
+  async redeemIfReturningFromCheckout(){
+    const sid = new URLSearchParams(location.search).get("session_id");
+    if(!sid) return;
+    try{
+      const res = await fetch(BACKEND.base() + "/api/redeem", {
+        method:"POST",
+        headers:{ "content-type":"application/json" },
+        body: JSON.stringify({ session_id: sid })
+      });
+      if(!res.ok) throw new Error("redeem " + res.status);
+      const data = await res.json();
+      Pass.set(data.pass, data.days);
+      toast("Unlimited cooking unlocked — welcome to the kitchen.");
+    }catch(e){
+      console.warn("Redeem failed:", e);
+      toast("We couldn't verify the payment automatically — try reloading, or contact support.");
+    }finally{
+      history.replaceState(null, "", location.pathname);
+    }
+  },
+
+  renderResult(d){
+    if(d.aiImage){
+      $("#recipe-illo").innerHTML = `<img src="${d.aiImage}" alt="Recipe card illustration of ${esc(d.name)}" style="width:100%;display:block"/>`;
+    } else {
+      $("#recipe-illo").innerHTML = illustrationSVG(d);
+      if(BACKEND.images) this.loadAIImage(d);
+    }
+    $("#result-chips").innerHTML = `
+      <span class="chip chip-type">${esc(d.type)}</span>
+      <span class="chip chip-conf">${esc(d.conf)}</span>
+      <span class="chip chip-branch">❧ ${esc(d.branch)}</span>`;
+    $("#r-name").textContent = d.name;
+    $("#r-inspiration").textContent = d.inspiration;
+    $("#r-source").textContent = d.source === "live"
+      ? "✦ One-of-a-kind dish, generated live for your profile."
+      : "❧ Served from the family recipe box.";
+    $("#r-why").textContent = d.why;
+    $("#r-story").textContent = d.story;
+    $("#r-ingredients").innerHTML = d.ingredients.map(i=>`<li>${esc(i)}</li>`).join("");
+    $("#r-steps").innerHTML = d.steps.map(s=>`<li>${esc(s)}</li>`).join("");
+    $("#r-skillnote").textContent = d.skillNote || "";
+    $("#r-subs").innerHTML = d.subs.map(s=>`<li>${esc(s)}</li>`).join("");
+    $("#r-serving").textContent = d.serving;
+    $("#r-dietnote").textContent = d.dietNote || "";
+  },
+
+  /* ---- async AI illustration (SVG stays until/unless this succeeds) ---- */
+  async loadAIImage(d){
+    const status = $("#illo-status");
+    status.classList.remove("hidden");
+    try{
+      const url = await ImageService.generate(d);
+      d.aiImage = url;
+      /* only swap if the user is still looking at this dish */
+      if(this.currentDish === d){
+        $("#recipe-illo").innerHTML = `<img src="${url}" alt="Recipe card illustration of ${esc(d.name)}" style="width:100%;display:block"/>`;
+      }
+    }catch(e){
+      console.warn("Image generation failed, keeping vintage card art:", e);
+      toast("Illustration model unavailable — keeping the vintage card art.");
+    }finally{
+      status.classList.add("hidden");
+    }
+  },
+
+  /* ---- actions ---- */
+  copyRecipe(){
+    const d = this.currentDish; if(!d) return;
+    const text = [
+      d.name.toUpperCase(),
+      `${d.type} · ${d.conf}`,
+      `Inspired by: ${d.branch}`,
+      "", "WHY THIS FITS YOUR FAMILY HISTORY", d.why,
+      "", "A NOTE FROM THE TABLE", d.story,
+      "", "INGREDIENTS", ...d.ingredients.map(i=>"- "+i),
+      "", "METHOD", ...d.steps.map((s,i)=>`${i+1}. ${s}`),
+      "", "SUBSTITUTIONS", ...d.subs.map(s=>"- "+s),
+      "", "TO SERVE", d.serving,
+      "", "—", "Recipes and food histories are culturally inspired suggestions, not proof of what your specific ancestors ate.",
+      "Your Roots Kitchen — Cook from your roots"
+    ].join("\n");
+    navigator.clipboard.writeText(text)
+      .then(()=>toast("Recipe copied — paste it anywhere."))
+      .catch(()=>toast("Couldn't copy automatically. Try selecting the text instead."));
+  },
+
+  downloadCard(){
+    const d = this.currentDish; if(!d) return;
+    try{
+      const {svg, w, h} = buildCardSVG(d);
+      const blob = new Blob([svg], {type:"image/svg+xml;charset=utf-8"});
+      const url = URL.createObjectURL(blob);
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement("canvas");
+        const scale = 2;
+        canvas.width = w*scale; canvas.height = h*scale;
+        const ctx = canvas.getContext("2d");
+        ctx.scale(scale, scale);
+        ctx.drawImage(img, 0, 0, w, h);
+        URL.revokeObjectURL(url);
+        canvas.toBlob(png=>{
+          const a = document.createElement("a");
+          a.href = URL.createObjectURL(png);
+          a.download = d.name.replace(/[^a-z0-9]+/gi,"-").toLowerCase() + "-recipe-card.png";
+          a.click();
+          setTimeout(()=>URL.revokeObjectURL(a.href), 4000);
+          toast("Recipe card downloaded.");
+        }, "image/png");
+      };
+      img.onerror = () => { URL.revokeObjectURL(url); this.downloadSVGFallback(svg, d); };
+      img.src = url;
+    }catch(e){
+      console.error(e);
+      toast("Couldn't build the card image — please try again.");
+    }
+  },
+
+  downloadSVGFallback(svg, d){
+    const blob = new Blob([svg], {type:"image/svg+xml;charset=utf-8"});
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = d.name.replace(/[^a-z0-9]+/gi,"-").toLowerCase() + "-recipe-card.svg";
+    a.click();
+    setTimeout(()=>URL.revokeObjectURL(a.href), 4000);
+    toast("Recipe card downloaded (SVG).");
+  },
+
+  /* ---- uploads ---- */
+  async handleFiles(fileList){
+    const allowed = ["png","jpg","jpeg","pdf","txt","docx","md"];
+    $("#upload-error").innerHTML = "";
+    for(const file of fileList){
+      const ext = file.name.split(".").pop().toLowerCase();
+      if(!allowed.includes(ext)){
+        $("#upload-error").innerHTML = `<div class="error-box">"${esc(file.name)}" isn't a supported type. Please use PNG, JPG, PDF, TXT, or DOCX.</div>`;
+        continue;
+      }
+      if(file.size > 15*1024*1024){
+        $("#upload-error").innerHTML = `<div class="error-box">"${esc(file.name)}" is over 15 MB — try a smaller file.</div>`;
+        continue;
+      }
+      try{
+        const res = await AIService.parseFile(file);
+        this.files.push({name:file.name, certain:res.certain, summary:res.summary});
+      }catch(e){
+        $("#upload-error").innerHTML = `<div class="error-box">Couldn't read "${esc(file.name)}". You can still type the details manually.</div>`;
+      }
+    }
+    this.renderFiles();
+  },
+
+  renderFiles(){
+    $("#filelist").innerHTML = this.files.map((f,i)=>`
+      <li>📜 ${esc(f.name)}
+        <span class="tag ${f.certain?"tag-ok":"tag-unsure"}">${f.certain?"details read":"marked uncertain"}</span>
+        <button type="button" class="btn btn-ghost" style="padding:2px 10px;font-size:.75rem" onclick="App.removeFile(${i})" aria-label="Remove ${esc(f.name)}">✕</button>
+      </li>`).join("");
+  },
+
+  removeFile(i){ this.files.splice(i,1); this.renderFiles(); }
+};
+
+/* =====================================================================
+   WIRE-UP
+   ===================================================================== */
+document.addEventListener("DOMContentLoaded", ()=>{
+
+  /* manual form -> profile review */
+  $("#heritage-form").addEventListener("submit", e=>{
+    e.preventDefault();
+    App.profile = App.collectForm();
+    App.renderProfile();
+    App.go("profile");
+  });
+
+  /* profile review -> generate */
+  $("#profile-form").addEventListener("submit", e=>{
+    e.preventDefault();
+    App.collectProfileEdits();
+    App.generate();
+  });
+
+  /* upload zone */
+  const dz = $("#dropzone"), fi = $("#file-input");
+  dz.addEventListener("click", ()=>fi.click());
+  dz.addEventListener("keydown", e=>{ if(e.key==="Enter"||e.key===" "){e.preventDefault();fi.click();} });
+  fi.addEventListener("change", ()=>{ App.handleFiles([...fi.files]); fi.value=""; });
+  ["dragover","dragenter"].forEach(ev=>dz.addEventListener(ev, e=>{e.preventDefault();dz.classList.add("drag");}));
+  ["dragleave","drop"].forEach(ev=>dz.addEventListener(ev, e=>{e.preventDefault();dz.classList.remove("drag");}));
+  dz.addEventListener("drop", e=>App.handleFiles([...e.dataTransfer.files]));
+
+  /* probe the owner's backend; silently fall back to offline mode if absent */
+  BACKEND.check().then(()=> App.redeemIfReturningFromCheckout());
+
+  /* email capture (session-only) */
+  $$("form[data-email-form]").forEach(form=>{
+    form.addEventListener("submit", e=>{
+      e.preventDefault();
+      const input = $("input[type=email]", form);
+      if(!input.value || !input.checkValidity()){ input.focus(); return; }
+      try{ sessionStorage.setItem("yrk_email", input.value); }catch(_){}
+      form.classList.add("hidden");
+      $(".email-thanks", form.parentElement).classList.remove("hidden");
+    });
+  });
+});
+</script>
+</body>
+</html>
