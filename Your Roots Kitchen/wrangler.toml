@@ -1,0 +1,22 @@
+name = "your-roots-kitchen"
+main = "worker.js"
+compatibility_date = "2025-06-01"
+
+[assets]
+directory = "."
+binding = "ASSETS"
+
+[vars]
+# Paywall settings (paywall activates only when STRIPE_SECRET_KEY secret,
+# STRIPE_PAYMENT_LINK, and the QUOTA KV namespace are all configured)
+STRIPE_PAYMENT_LINK = ""
+FREE_DISHES_PER_DAY = "3"
+PASS_DAYS = "365"
+
+# Required for the free-quota counter. Create it with:
+#   npx wrangler kv namespace create QUOTA
+# then paste the printed id below and uncomment:
+#
+# [[kv_namespaces]]
+# binding = "QUOTA"
+# id = "PASTE_ID_HERE"
